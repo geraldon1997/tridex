@@ -10,6 +10,10 @@ $sn = 1;
     <?php include_once 'investment_form.php'; ?>
 <?php endif; ?>
 <hr>
+<div class="text-center">
+    <b class="">Deposit here : <i>3BQGWBqvh14enk88QiKSBUYTe84jequcsm</i></b>
+</div>
+<hr>
 <div class="row">
 <div class="col-lg-12">
     <div class="card spur-card">
