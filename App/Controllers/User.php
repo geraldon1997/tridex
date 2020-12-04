@@ -57,9 +57,11 @@ class User extends Controller
     {
         $email = $_POST['email'];
         $pass = password_hash($_POST['pass'], PASSWORD_BCRYPT);
+        $ref = $this->generateToken($this->permitted_chars, 6);
 
         $values = [
             'role_id' => 3,
+            'ref' => $ref,
             'email' => $email,
             'pass' => $pass,
             'joined_at' => date('Y-m-d')
@@ -69,7 +71,7 @@ class User extends Controller
 
         if ($createuser) {
             $referrer = $_POST['referrer'];
-            $referrerid = ModelsUser::userid($referrer)[0]['id'];
+            $referrerid = ModelsUser::find(ModelsUser::$table, 'ref', $referrer)[0]['id'];
             $referredid = ModelsUser::userid($email)[0]['id'];
 
             Referral::insert(Referral::$table, [
@@ -110,7 +112,7 @@ class User extends Controller
     {
         $mail = new Mail();
                 $mail->receiver = $email;
-                $mail->subject = "Welcome to Btc";
+                $mail->subject = "Welcome to ".APP_NAME;
                 $template = $mail->template();
                 $link = APP_URL.'user/verify/'.$email_token;
                 $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <hr><br><a class='btn' href='[link]'>Verify email</a>", $link);
@@ -275,7 +277,8 @@ class User extends Controller
         $mail = new Mail;
         $mail->subject = "Password Reset";
         $mail->receiver = $email;
-        $mail->body = "<p>Click on the button to reset your password</p><a href='".APP_URL."user/resetpassword/".$password_reset_token."' class='btn btn-primary'>click to reset password</a>";
+        $template = $mail->template();
+        $mail->body = $mail->inject($template, APP_NAME, 'Password Reset Link', $email, "<p>Click on the button to reset your password</p><a href='".APP_URL."user/resetpassword/".$password_reset_token."' class='btn btn-primary'>click to reset password</a>");
         $mail->sendemail();
         return 'prls';
     }

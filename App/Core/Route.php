@@ -15,7 +15,7 @@ class Route
 
             if (!class_exists($class)) {
                 Response::code(404);
-                return 'page not found';
+                return Response::redirect(HOME);
             }
 
             $method = $patharray[1];
@@ -23,7 +23,7 @@ class Route
 
             if (!method_exists(new $class, $method)) {
                 Response::code(404);
-                return 'page not found';
+                return Response::redirect(HOME);
             }
 
             if ($post) {

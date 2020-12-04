@@ -57,4 +57,9 @@ class User extends QueryBuilder
 
         return $profile[0]['is_active'];
     }
+
+    public static function ref($email)
+    {
+        return self::find(User::$table, 'email', $email)[0]['ref'];
+    }
 }

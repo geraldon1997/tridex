@@ -9,9 +9,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 class Mail extends Controller
 {
     public $senderemail = "gerald@legacyuniversity.edu.ng";
-    public $sendername = "BTC";
+    public $sendername = APP_NAME;
     public $replytoemail = "gerald@legacyuniversity.edu.ng";
-    public $replytoname = "MOSCO";
+    public $replytoname = APP_NAME;
     public $subject;
     public $body;
     public $receiver;
