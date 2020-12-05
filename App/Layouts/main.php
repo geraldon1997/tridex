@@ -12,7 +12,7 @@ use App\Core\Request;
     <!-- carousel CSS -->
     <link rel="stylesheet" href="<?= ASSETS; ?>css/owl.carousel.min.css">
     <!--header icon CSS -->
-    <link rel="icon" href="<?= ASSETS; ?>img/fabicon.png">
+    <link rel="icon" href="<?= ASSETS; ?>img/logo.png">
     <!-- animations CSS -->
     <link rel="stylesheet" href="<?= ASSETS; ?>css/animate.min.css">
     <!-- font-awsome CSS -->
