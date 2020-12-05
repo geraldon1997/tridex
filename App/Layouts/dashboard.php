@@ -24,7 +24,7 @@ use App\Models\User;
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="<?= DASHBOARD; ?>" class="spur-logo"><i class="fas fa-bolt"></i> <span>BTC</span></a>
+                <a href="<?= DASHBOARD; ?>" class="spur-logo"><i class="fas fa-bolt"></i> <span><?= APP_ABBRV; ?></span></a>
             </header>
             <nav class="dash-nav-list">
                 <a href="<?= DASHBOARD; ?>" class="dash-nav-item">

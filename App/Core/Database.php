@@ -7,7 +7,7 @@ class Database
 {
     public static function open()
     {
-        $con = new mysqli('localhost', 'root', '', 'ggi');
+        $con = new mysqli('localhost', 'root', '', 'tridex');
 
         if (!$con) {
             return "Error connecting to database, please contact sysadmin ".$con->error;

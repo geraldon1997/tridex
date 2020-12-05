@@ -32,7 +32,7 @@ use App\Core\Request;
 
     <script src="<?= ASSETS; ?>js/jquery-2.2.4.min.js"></script>
     <script>
-        const app_url = 'http://btc.test/';
+        const app_url = 'http://tridex.test/';
     </script>
     
   </head>
@@ -46,7 +46,7 @@ use App\Core\Request;
                 </div>
                 <div class="col-4 col-lg-2">
                     <div class="logo-area">
-                        <a href="#"><img src="<?= ASSETS; ?>img/logo-top.png" alt=""></a>
+                        <a href="<?= HOME; ?>"><img src="<?= ASSETS; ?>img/logo.png" alt="" style="height: 50px !important;"></a>
                     </div>
                 </div>
                 <div class="col-4 col-lg-8 d-none d-lg-block">
@@ -86,7 +86,7 @@ use App\Core\Request;
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-footer">
                         <div class="logo-area footer">
-                            <a href="#"><img src="<?= ASSETS; ?>img/logo-top.png" alt=""></a>
+                            <a href="#"><img src="<?= ASSETS; ?>img/logo.png" style="height: 50px !important;" alt=""></a>
                         </div>
                         <div class="space-20"></div>
                         <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. </p>
