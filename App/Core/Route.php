@@ -7,6 +7,8 @@ class Route
     {
         $requestpath = Request::path();
         $post = Request::isPost();
+
+        $class = 'App\\Controllers\\Page';
         
         if ($requestpath !== '/') {
             $patharray = explode('/', $requestpath);
@@ -15,7 +17,7 @@ class Route
 
             if (!class_exists($class)) {
                 Response::code(404);
-                return Response::redirect(HOME);
+                return call_user_func([new $class, 'default']);
             }
 
             $method = $patharray[1];
@@ -23,7 +25,7 @@ class Route
 
             if (!method_exists(new $class, $method)) {
                 Response::code(404);
-                return Response::redirect(HOME);
+                return call_user_func([new $class, 'default']);
             }
 
             if ($post) {

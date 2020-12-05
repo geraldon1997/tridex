@@ -15,10 +15,10 @@ class Location extends Controller
         $this->holiday = new Holiday(['key' => $this->key]);
     }
 
-    public function countries()
+    public static function countries()
     {
         $countries = ModelsLocation::all(ModelsLocation::$table);
-        return json_encode($countries);
+        return $countries;
     }
 
     public function addcountries()

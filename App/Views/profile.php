@@ -1,6 +1,7 @@
 <?php
 use App\Models\User;
 use App\Models\Profile as P;
+use App\Controllers\Location as L;
 ?>
 <div class="col-xl-12">
     <div class="card spur-card">
@@ -28,7 +29,9 @@ use App\Models\Profile as P;
                         <label for="country">Country</label>
                         <select id="inputCountry" name="country" class="form-control">
                             <option value="<?= P::authUser() ? P::authUser()['country'] : ''; ?>"><?= P::authUser() ? P::authUser()['country'] : 'country of residence ...'; ?></option>
-                            
+                            <?php foreach (L::countries() as $country) : ?>
+                            <option value="<?= $country['country']; ?>"><?= $country['country']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -68,23 +71,25 @@ use App\Models\Profile as P;
 </div>
 
 <script>
-    $.ajax({
-        type : 'GET',
-        url : '/location/countries',
-        success : (data) => {
-            var countries = JSON.parse(data);
-            countries.forEach(country => {
-                $('#inputCountry').append("<option value="+country.country+">"+country.country+"</option>"); 
-            });
-        }
-    })
+    // $.ajax({
+    //     type : 'GET',
+    //     url : '/location/countries',
+    //     success : (data) => {
+    //         console.log(data)
+
+    //         var countries = data;
+    //         countries.forEach(country => {
+    //             $('#inputCountry').append("<option value="+country.country+">"+country.country+"</option>"); 
+    //         });
+    //     }
+    // })
 
     $('form').submit((e) => {
         e.preventDefault();
 
         var form = $('.form').attr('id');
         var formdata = $('form').serialize();
-console.log(form);
+
         $('form #update').prop('disabled','true').html('processing . . .');
         if (form === 'add') {
             $.ajax({

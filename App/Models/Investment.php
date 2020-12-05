@@ -32,6 +32,6 @@ class Investment extends QueryBuilder
     public static function current()
     {
         $userid = User::userid($_SESSION['email']);
-        return Investment::findMultiple(Investment::$table, "user_id = $userid ORDER BY id DESC LIMIT 1");
+        return Investment::findMultiple(Investment::$table, "user_id = $userid AND is_active = 1 ORDER BY id DESC LIMIT 1");
     }
 }

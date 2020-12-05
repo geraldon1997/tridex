@@ -108,7 +108,7 @@ $inv = new Cinvest;
                     <i class="fas fa-hand-holding-usd"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">5</div>
+                    <div class="stats-number"><?= Withdrawal::totalWithdrawal(); ?></div>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@ $inv = new Cinvest;
 </div>
 
     <?php else : ?>
-    <div class="alert alert-secondary" role="alert"> Please update your <a href="<?= PROFILE; ?>" class="btn btn-outline-primary btn-sm">Profile</a> before you can proceed </div>
+    <div class="alert alert-secondary" role="alert"> Please update your <a href="<?= PROFILE; ?>" class="btn btn-outline-primary">Profile</a> before you can proceed </div>
     <?php endif; ?>
 <?php endif; ?>
 

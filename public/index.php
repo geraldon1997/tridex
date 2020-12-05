@@ -9,7 +9,7 @@ use App\Models\User;
 require_once '../vendor/autoload.php';
 
 define('APP_NAME', 'BTC');
-define('APP_URL', 'http://btc.test/');
+define('APP_URL', 'http://tridex.test/');
 define('ASSETS', APP_URL.'public/assets/');
 define('HOME', '/');
 define('ABOUT', '/page/about');
