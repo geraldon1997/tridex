@@ -142,6 +142,9 @@ $('form').submit((event)=>{
                     alert('A verification link has been sent to your email');
                     location.href = "/user/signin"
                 }, 3000);
+            } else {
+                alert('An Error occurred, Registration not successful. possibly duplicate credentials');
+                location.href = '/user/signin';
             }
         }
     });
