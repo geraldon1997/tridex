@@ -15,7 +15,7 @@
             switch (response) {
                 case 'it':
                     alert('Invalid Token');
-                    window.location = '/user/sigin';
+                    window.location = '/user/signin';
                     break;
 
                 case 'te':

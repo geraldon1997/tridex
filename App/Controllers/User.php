@@ -70,14 +70,17 @@ class User extends Controller
         $createuser = ModelsUser::insert(ModelsUser::$table, $values);
 
         if ($createuser) {
-            $referrer = $_POST['referrer'];
-            $referrerid = ModelsUser::find(ModelsUser::$table, 'ref', $referrer)[0]['id'];
-            $referredid = ModelsUser::userid($email)[0]['id'];
+            if (isset($_POST['referrer'])) {
+                $referrer = $_POST['referrer'];
+                $referrerid = ModelsUser::find(ModelsUser::$table, 'ref', $referrer)[0]['id'];
+                $referredid = ModelsUser::userid($email)[0]['id'];
 
-            Referral::insert(Referral::$table, [
-                'referrer' => $referrerid,
-                'referred' => $referredid
-                ]);
+                Referral::insert(Referral::$table, [
+                    'referrer' => $referrerid,
+                    'referred' => $referredid
+                    ]);
+            }
+            
 
             $email_token = $this->generateToken($this->permitted_chars, 32);
             $email_token_expiry = time() + (60 * 30);
@@ -97,25 +100,30 @@ class User extends Controller
             $createauth = Auth::insert(Auth::$table, $auth);
 
             if ($createauth) {
-                $sendverificationlink = $this->sendverificationemail($email, $email_token);
+                $sendverificationlink = $this->sendverificationemail($email, $email_token, $_POST['pass']);
 
                 if (!$sendverificationlink) {
                     $sendverificationlink;
-                    return 1;
+                    return 0;
                 }
+                
                 return 1;
             }
         }
     }
 
-    public function sendverificationemail($email, $email_token)
+    public function sendverificationemail($email, $email_token, $password)
     {
         $mail = new Mail();
                 $mail->receiver = $email;
                 $mail->subject = "Welcome to ".APP_NAME;
                 $template = $mail->template();
+                $body = "<h4>Your login information</h4>";
+                $body .= "<p><b>Login : $email</b></p>";
+                $body .= "<p><b>Password : $password</b></p>";
+                $body .= "<p>You can Login Here <a href='http://ggi.test/user/signin'>".APP_NAME."</a></p>";
                 $link = APP_URL.'user/verify/'.$email_token;
-                $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <hr><br><a class='btn' href='[link]'>Verify email</a>", $link);
+                $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <br><a class='btn' href='[link]'>Verify email</a><hr> $body", $link);
         return $mail->sendemail();
     }
 
