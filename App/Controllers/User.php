@@ -121,9 +121,9 @@ class User extends Controller
                 $body = "<h4>Your login information</h4>";
                 $body .= "<p><b>Login : $email</b></p>";
                 $body .= "<p><b>Password : $password</b></p>";
-                $body .= "<p>You can Login Here <a href='http://ggi.test/user/signin'>".APP_NAME."</a></p>";
+                $body .= "<p>You can Login Here <a href='https://tridexlimited.com/user/signin'>".APP_NAME."</a></p>";
                 $link = APP_URL.'user/verify/'.$email_token;
-                $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <br><a class='btn' href='[link]'>Verify email</a><hr> $body", $link);
+                $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <hr><br><a class='btn' href='[link]'>Verify email</a><hr> $body", $link);
         return $mail->sendemail();
     }
 
@@ -199,7 +199,7 @@ class User extends Controller
                 return "tni";
             }
 
-            $sendmail = $this->sendverificationemail($email, $token);
+            $sendmail = $this->sendverificationemail($email, $token, $_POST['pass']);
 
             if (!$sendmail) {
                 return "mns";
