@@ -14,7 +14,7 @@
     floors of caves, German researchers have managed.</h4>
                         </div>
                         <div class="welcome-btn">
-                            <a href="#" class="gradient-btn v2 mr-20">Register for the ICO</a>
+                            <a href="<?= SIGNUP; ?>" class="gradient-btn v2 mr-20">Register for the ICO</a>
                             <a href="#Paper" class="gradient-btn v2">Download Whitepaper</a>
                         </div>
                     </div>
@@ -918,36 +918,36 @@
             <div class="row">
                 <div class="col-6 col-lg">
                     <div class="single-community big-social">
-                        <a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a>
+                        <a class="google-plus" href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a>
                     </div>
                 </div>
                 <div class="col-6 col-lg">
                     <div class="single-community mid-social">
-                        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                        <a class="linkedin" href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a>
                     </div>
                     <div class="single-community">
-                        <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
+                        <a class="dribbble" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a>
                     </div>
                 </div>
                 <div class="col-6 col-lg">
                     <div class="single-community">
-                        <a class="github" href="#"><i class="fa fa-github"></i></a>
+                        <a class="github" href="https://github.com/"><i class="fa fa-github"></i></a>
                     </div>
                     <div class="single-community mid-social">
-                        <a class="behance" href="#"><i class="fa fa-behance"></i></a>
+                        <a class="behance" href="https://behance.net/"><i class="fa fa-behance"></i></a>
                     </div>
                 </div>
                 <div class="col-6 col-lg">
                     <div class="single-community big-social">
-                        <a class="youtube" href="#"><i class="fa fa-youtube"></i></a>
+                        <a class="youtube" href="https://youtube.com/"><i class="fa fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="col-6 col-lg">
                     <div class="single-community mid-social">
-                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="twitter" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
                     </div>
                     <div class="single-community">
-                        <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
+                        <a class="flickr" href="https://www.flickr.com/"><i class="fa fa-flickr"></i></a>
                     </div>
                 </div>
             </div>
