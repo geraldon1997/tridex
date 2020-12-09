@@ -98,7 +98,7 @@
                             break;
 
                         case 'ms':
-                            alert('Email not verified, a verification link has been sent to your email');
+                            alert('Email not verified, a verification link has been sent to your email. \n please check your spam if not found inbox and move it to inbox');
                             signin.removeAttr('disabled').html('Sign in');
                             break;
 
@@ -115,7 +115,7 @@
                         case 'lcs':
                             $('#signin').prop({'disabled':'true'}).html('credentials verified');
                             setTimeout(() => {
-                                alert('Login code has been sent to your email');                          
+                                alert('Login code has been sent to your email. \n please check your spam if not found inbox and move it to inbox');                          
                                 window.location = '/user/login';
                             }, 1000);
                             break;

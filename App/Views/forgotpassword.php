@@ -64,7 +64,7 @@
                                 btn.html('email address confirmed');
                             }, 3000);
                             setTimeout(() => {
-                                alert('A password reset link has been sent to your email');
+                                alert('A password reset link has been sent to your email. \n please check your spam if not found inbox and move it to inbox');
                                 window.location = '/user/signin';
                             }, 6000);
                             break;
