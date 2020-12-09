@@ -75,13 +75,13 @@
                         case 'lcv':
                             setTimeout(() => {
                                 btn.html('Login Code Verified');
-                            }, 3000);
+                            }, 1000);
                             setTimeout(()=>{
                                 btn.html('Redirecting . . . .');
-                            }, 6000);
+                            }, 2000);
                             setTimeout(() => {
                                 window.location = '/user/dashboard';
-                            }, 9000)
+                            }, 3000)
 
                         default:
                             break;

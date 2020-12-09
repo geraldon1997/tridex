@@ -26,10 +26,10 @@
                         <td><?= $inactive['user']['email'] ?></td>
                         <td><?= $inactive['auth']['is_active'] ? '<button class="btn btn-outline-success btn-sm mb-1">active</button>' : '<button class="btn btn-outline-danger btn-sm mb-1">inactive</button>'; ?></td>
                         <td>
-                            <button class="btn btn-warning btn-sm" title="Activate user">
+                            <button class="btn btn-warning btn-sm" title="Activate user" user-id="<?= $inactive['user']['id'] ?>">
                                 <i class="fa fa-angle-double-right"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm" title="delete user">
+                            <button class="btn btn-danger btn-sm" title="delete user" user-id="<?= $inactive['user']['id'] ?>">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
@@ -42,3 +42,8 @@
 </div>
 
 </div>
+
+
+<script>
+
+</script>

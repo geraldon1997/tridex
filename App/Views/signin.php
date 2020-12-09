@@ -117,7 +117,7 @@
                             setTimeout(() => {
                                 alert('Login code has been sent to your email');                          
                                 window.location = '/user/login';
-                            }, 3000);
+                            }, 1000);
                             break;
 
                         case 'usli':
