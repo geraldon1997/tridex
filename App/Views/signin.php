@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 offset-3">
+                <div class="col-md-6 offset-3">
                     <div class="contact-form">
                         <form>
                             <input type="email" id="email" name="email" placeholder="your email address">
@@ -31,16 +31,16 @@
                             <div class="col">
                             <a href="<?= FORGOT_PASSWORD; ?>" class="gradient-btn">Forgot Password ?</a>
                             </div>
-                        </div>
                     </div>
                 </div>
-                
             </div>
             
         </div>
         
-       
     </div>
+    
+    
+</div>
     <!--community area end-->
 
     <script>

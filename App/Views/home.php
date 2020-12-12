@@ -95,17 +95,16 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 align-self-center">
-                    <div class="heading">
+                    <!-- <div class="heading">
                         <h5>We are featured in</h5>
-                    </div>
+                    </div> -->
                     <div class="about-mid-text">
-                        <h1>A Platform for Exchange 
-                        Cyrptocurrency and shares</h1>
+                        <h1>A Platform for Cyrptocurrency Exchange and shares</h1>
                         <div class="space-10"></div>
                         <p>Mauna Loa, the biggest volcano on Earth  half the Island of Hawaii. Just 35 miles to the northeast, Mauna Kea, known to native Hawaiians as Mauna a Wakea, rises nearly 14,000 feet above sea level.  If they are so close together, how did they develop in two parallel tracks .Sifting through teaspoons of clay and sand scraped from the floors of caves.</p>
                     </div>
                     <div class="space-30"></div>
-                    <a href="#" class="gradient-btn v2 about-btn"> <i class="fa fa-send-o"></i> join us on telegraph</a>
+                    <a href="https://t.me/joinchat/AAAAAEwFUAppJ-RhXUSM1A" class="gradient-btn v2 about-btn"> <i class="fa fa-send-o"></i> join us on telegram</a>
                 </div>
             </div>
         </div>
@@ -168,43 +167,21 @@
             </div>
             <div class="space-60"></div>
             <div class="row">
-                <div class="col-6 col-lg-3">
+                <div class="col-6 col-lg-6">
                     <div class="single-ico">
                         <h5>Token Sold: 126,419,796</h5>
                         <h5>1 ETH = 235 ICoin</h5>
                         <a href="#">10 % Bonus</a>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3">
+                <div class="col-6 col-lg-6">
                     <div class="single-ico">
                         <h5><a href="#">ETH</a>collected 90252</h5>
                         <h5><a href="#">BTC</a> collected 90152</h5>
                         <h5><a href="#">LTH</a>collected 5052</h5>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div class="single-ico">
-                        <h5>Sale Ends in :</h5>
-                       <div class="row">
-                           <div class="col">
-                               <span id="days"></span>
-                               <h5>days</h5>
-                           </div>
-                           <div class="col">
-                               <span id="hours"></span>
-                               <h5>hours</h5>
-                           </div>
-                           <div class="col">
-                               <span id="minutes"></span>
-                                <h5>minutes</h5>
-                           </div>
-                           <div class="col">
-                               <span id="seconds"></span>
-                               <h5>seconds</h5>
-                           </div>
-                       </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="row">
                 <div class="col-12">
@@ -213,7 +190,7 @@
                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80"
                             aria-valuemin="0" aria-valuemax="100" style="width:80%">
                                 <div class="progress-details">
-                                    <p>$ 38 M</p>
+                                    <p>$ 38 B</p>
                                     <div class="progress-d-top"></div>
                                 </div>
                             </div>
@@ -233,7 +210,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <a href="#" class="gradient-btn v2">Buy Tokens</a>
+                    <a href="<?= SIGNIN; ?>" class="gradient-btn v2">Get onboard</a>
                 </div>
             </div>
         </div>
@@ -838,7 +815,7 @@
                                     <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a>
                                 </div>
                                 <div class="single-faq">
-                                    <h4>The Risks of Investing in ICO ?</h4>
+                                    <h4>The Benefits of Investing in ICO ?</h4>
                                     <div class="space-20"></div>
                                     <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day.</p>
                                     <div class="space-20"></div>

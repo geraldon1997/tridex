@@ -137,4 +137,9 @@ class Investment extends Controller
     {
         var_dump($_POST['accu']);
     }
+
+    public function deposit()
+    {
+        return $this->view('payment_page');
+    }
 }

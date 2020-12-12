@@ -14,6 +14,7 @@ use App\Models\User;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="<?= ASSETS; ?>js/chart-js-config.js"></script>
     <script src="<?= ASSETS; ?>js/jquery-2.2.4.min.js"></script>
+    <link rel="shortcut icon" href="<?= ASSETS; ?>img/logo.png" type="image/x-icon">
     <title><?= APP_NAME; ?></title>
 </head>
 

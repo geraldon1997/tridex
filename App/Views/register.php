@@ -139,7 +139,7 @@ $('form').submit((event)=>{
                 }, 1000);
                 
                 setTimeout(() => {
-                    alert('A verification link has been sent to your email.\n please check your spam if not found inbox and move it to inbox');
+                    alert('A verification link has been sent to your email.\nplease check your spam if not found inbox and move it to inbox');
                     location.href = "/user/signin"
                 }, 3000);
             } else {

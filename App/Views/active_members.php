@@ -9,7 +9,7 @@
             </div>
             <div class="">Active members</div>
         </div>
-        <div class="card-body card-body-with-dark-table">
+        <div class="card-body card-body-with-dark-table" style="overflow:auto;">
             <table class="table table-dark table-in-card">
                 <thead>
                     <tr>
@@ -61,7 +61,7 @@
                 type : 'POST',
                 url : '/user/delete',
                 data : {
-                    userid : userid
+                    id : userid
                 },
                 success : (response) => {
                     if (response) {

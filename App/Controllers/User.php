@@ -170,6 +170,18 @@ class User extends Controller
         return 'ev';
     }
 
+    public function activate()
+    {
+        $id = $_POST['id'];
+        return Auth::update(Auth::$table, "is_email_verified = 1", 'user_id', $id);
+    }
+
+    public function delete()
+    {
+        $id = $_POST['id'];
+        return ModelsUser::delete(ModelsUser::$table, 'id', $id);
+    }
+
     public function auth()
     {
         $email = $_POST['email'];
@@ -445,11 +457,6 @@ class User extends Controller
         $data .= "gender = '$gn' ";
         
         return Profile::update(Profile::$table, $data, 'user_id', $userid);
-    }
-
-    public function delete()
-    {
-        return ModelsUser::delete(ModelsUser::$table, 'id', $_POST['userid']);
     }
 
     public function details($data)

@@ -26,10 +26,10 @@
                         <td><?= $inactive['user']['email'] ?></td>
                         <td><?= $inactive['auth']['is_active'] ? '<button class="btn btn-outline-success btn-sm mb-1">active</button>' : '<button class="btn btn-outline-danger btn-sm mb-1">inactive</button>'; ?></td>
                         <td>
-                            <button class="btn btn-warning btn-sm" title="Activate user" user-id="<?= $inactive['user']['id'] ?>">
+                            <!-- <button class="btn btn-warning btn-sm" title="Activate user" id="activate" user-id="<?= $inactive['user']['id'] ?>">
                                 <i class="fa fa-angle-double-right"></i>
-                            </button>
-                            <button class="btn btn-danger btn-sm" title="delete user" user-id="<?= $inactive['user']['id'] ?>">
+                            </button> -->
+                            <button class="btn btn-danger btn-sm" title="delete user" id="delete" user-id="<?= $inactive['user']['id'] ?>">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
@@ -45,5 +45,30 @@
 
 
 <script>
+    $('button').click((e) => {
+        var btn = $(e.currentTarget);
+        let userid = btn.attr('user-id');
+        let action = btn.attr('id');
 
+        var result = confirm('Are you sure to '+action+' this user ?');
+
+        if (result == true) {
+            $.ajax({
+                type : 'POST',
+                url : '/user/' + action,
+                data : {
+                    id : userid
+                },
+                success : (response) => {
+                    if (response) {
+                        alert('user '+action+'d');
+                        location.reload();
+                    } else {
+                        alert('user not '+action+'d');
+                    }
+                }
+            })
+        }
+        
+    })
 </script>

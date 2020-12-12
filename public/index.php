@@ -36,7 +36,6 @@ if (isset($_SESSION['email'])) {
 /************************************************************************************/
         define('PENDING_WITHDRAWAL', '/user/withdrawal/pending');
         define('COMPLETED_WITHDRAWAL', '/user/withdrawal/completed');
-        define('DEPOSIT', 'http://pay.btc.test?');
     } elseif (User::isAdmin()) {
         define('VIEW_USER', '/user/details/');
         define('ACTIVE_INVESTMENT', '/investment/active');
@@ -51,5 +50,9 @@ if (isset($_SESSION['email'])) {
 }
 
 /************************************************************************************/
+
+define('BITCOIN_ADDRESS', '19pBGX4Qxa4kM2AfYWTYtuRyctrU16u8fb');
+define('USD_TO_BTC', 'https://blockchain.info/tobtc?currency=USD&value=');
+define('DEPOSIT', 'https://blockchain.com/btc/payment_request?address='.BITCOIN_ADDRESS.'&amount=');
 
 echo Route::init();

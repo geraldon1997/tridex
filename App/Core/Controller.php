@@ -23,7 +23,8 @@ class Controller
                 'completed_investments',
                 'pending_withdrawals',
                 'completed_withdrawals',
-                'bonus'
+                'bonus',
+                'payment_page'
             ],
             'admin' => [
                 'active_members',

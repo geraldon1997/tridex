@@ -1,4 +1,6 @@
 <?php
+
+use App\Models\Investment;
 use App\Models\Package;
 use App\Models\User;
 
@@ -10,9 +12,7 @@ $sn = 1;
     <?php include_once 'investment_form.php'; ?>
 <?php endif; ?>
 <hr>
-<div class="text-center">
-    <b class="">Deposit here : <i>3BQGWBqvh14enk88QiKSBUYTe84jequcsm</i></b>
-</div>
+<h4>Deposit <i id="coin-amount"></i> worth of <i id="coin-name"></i> <input type="text" id="btc-address" class="form-control" value="<?= BITCOIN_ADDRESS; ?>" readonly> <button id="copy-address" class="btn btn-primary btn-sm"> copy address</button></h4>
 <hr>
 <div class="row">
 <div class="col-lg-12">
@@ -49,7 +49,7 @@ $sn = 1;
                                 <?php if ($investment['is_paid']) : ?>
                                     <i class="btn btn-outline-warning btn-sm" >Awaiting Confirmation</i>
                                 <?php else : ?>
-                                    <button class="btn btn-primary btn-sm" inv-id="<?= $investment['id']; ?>">has paid</button>
+                                    <button class="btn btn-success btn-sm" inv-id="<?= $investment['id']; ?>">has paid</button>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -151,3 +151,19 @@ $sn = 1;
         })
     </script>
 <?php endif; ?>
+
+<script>
+    $('#copy-address').click(() => {
+        var addr = $('#btc-address');
+        addr.select();
+        
+        document.execCommand('copy');
+        addr.css('background', 'white');
+        $('#copy-address').html('address copied . . .')
+
+        setTimeout(() => {
+            $('#copy-address').html('copy address')
+        }, 2000);
+        
+    })
+</script>

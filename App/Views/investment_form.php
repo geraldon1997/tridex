@@ -18,6 +18,8 @@ use App\Models\Package;
                     <input type="text" name="amount" id="amount" class="form-control" placeholder="amount" minlength="3" maxlength="5" required>
                 </div>
 
+                
+
                 <div class="form-group col-md-2">
                     
                 <button class="btn btn-primary" id="invest">invest</button>
