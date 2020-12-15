@@ -38,7 +38,12 @@ class Route
             return call_user_func([new $class, $method], $params);
         }
 
-        $class = 'App\\Controllers\\Page';
+        if ($requestpath === '') {
+            Response::code(200);
+            return call_user_func([new $class, 'default']);
+        }
+        
+        $requestpath = '/';
         Response::code(200);
         return call_user_func([new $class, 'default']);
     }

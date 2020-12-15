@@ -12,4 +12,9 @@ class Referral extends QueryBuilder
         $userid = User::userid($_SESSION['email']);
         return Referral::find(Referral::$table, 'referrer', $userid);
     }
+
+    public static function investments()
+    {
+        //
+    }
 }

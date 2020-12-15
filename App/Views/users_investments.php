@@ -1,0 +1,1 @@
+<h1 class="dash-title"><?= $params['email']; ?> Investmtents</h1>

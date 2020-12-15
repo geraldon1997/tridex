@@ -142,4 +142,12 @@ class Investment extends Controller
     {
         return $this->view('payment_page');
     }
+
+    public function user($id)
+    {
+        $userid = $id[0];
+        $investments = ModelsInvestment::investments($userid);
+        $useremail = User::findSingle(User::$table, 'id', $userid)[0]['email'];
+        return $this->view('users_investments', ['email' => $useremail, 'investments' => $investments]);
+    }
 }

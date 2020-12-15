@@ -31,10 +31,11 @@ class Controller
                 'inactive_members',
                 'moderators',
                 'user',
-                'users_referrals'
+                'users_referrals',
+                'users_investments'
             ],
             'moderator' => [
-                'referrals'
+                'users_investments'
             ]
         ],
         'nonauth' => [

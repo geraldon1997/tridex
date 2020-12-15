@@ -39,4 +39,9 @@ class Investment extends QueryBuilder
     {
         return file_get_contents(USD_TO_BTC.$amount);
     }
+
+    public static function investments($userid)
+    {
+        return Investment::find(Investment::$table, 'user_id', $userid);
+    }
 }
