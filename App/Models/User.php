@@ -55,7 +55,11 @@ class User extends QueryBuilder
         $userid = User::userid($_SESSION['email']);
         $profile = Auth::findSingle(Auth::$table, 'user_id', $userid);
 
-        return $profile[0]['is_active'];
+        if ($profile[0]['is_active']) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static function ref($email)

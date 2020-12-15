@@ -25,6 +25,10 @@
                         <td><?= $moderator['user']['email']; ?></td>
                         <td><?= $moderator['auth']['is_active'] ? '<button class="btn btn-outline-success btn-sm mb-1">active</button>' : '<button class="btn btn-outline-danger btn-sm mb-1">inactive</button>'; ?></td>
                         <td>
+                            <a href="<?= VIEW_USER.$moderator['user']['id']; ?>" class="btn btn-primary btn-sm" title="view profile">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a href="<?= VIEW_USER_REFERRALS.$moderator['user']['id']; ?>" class="btn btn-info btn-sm"><i class="fa fa-users" title="view referrals"></i></a>
                             <button class="btn btn-warning btn-sm" title="downgrade to normal user" id="downgrade" user-id="<?= $moderator['user']['id']; ?>">
                                 <i class="fa fa-angle-double-down"></i>
                             </button>
@@ -43,43 +47,28 @@
 </div>
 
 <script>
-    $('#downgrade').click((e) => {
-        var userid = $(e.currentTarget).attr('user-id');
+    $('button').click((e) => {
+        var btn = $(e.currentTarget);
+        var action = btn.attr('id');
+        var userid = btn.attr('user-id');
+        var verify = confirm('Are you sure to '+action+' this user');
 
-        $.ajax({
-            type : 'POST',
-            url : '/user/downgrade',
-            data : {
-                userid : userid
-            },
-            success : (response) => {
-                if (response) {
-                    alert('Moderator has been downgraded to normal user');
-                    location.reload();
-                } else {
-                    alert('An error occurred, Moderator was not downgraded');
+        if (verify == true) {
+            $.ajax({
+                type : 'POST',
+                url : '/user/'+action,
+                data : {
+                    userid : userid
+                },
+                success : (response) => {
+                    if (response) {
+                        alert('user has been '+action+'d');
+                        location.reload();
+                    } else {
+                        alert('An error occurred');
+                    }
                 }
-            }
-        })
-    })
-
-    $('#delete').click((e) => {
-        var userid = $(e.currentTarget).attr('user-id');
-
-        $.ajax({
-            type : 'POST',
-            url : '/user/delete',
-            data : {
-                userid : userid
-            },
-            success : (response) => {
-                if (response) {
-                    alert('Moderator has been deleted');
-                    location.reload();
-                } else {
-                    alert('An error occurred, Moderator was not deleted');
-                }
-            }
-        })
+            })
+        }
     })
 </script>

@@ -141,7 +141,7 @@ $('form').submit((event)=>{
                 setTimeout(() => {
                     alert('A verification link has been sent to your email.\nplease check your spam if not found inbox and move it to inbox');
                     location.href = "/user/signin"
-                }, 3000);
+                }, 2000);
             } else {
                 alert('An Error occurred, Registration not successful. possibly duplicate credentials');
                 location.href = '/user/signin';

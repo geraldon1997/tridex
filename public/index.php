@@ -38,6 +38,7 @@ if (isset($_SESSION['email'])) {
         define('COMPLETED_WITHDRAWAL', '/user/withdrawal/completed');
     } elseif (User::isAdmin()) {
         define('VIEW_USER', '/user/details/');
+        define('VIEW_USER_REFERRALS', '/referral/users/');
         define('ACTIVE_INVESTMENT', '/investment/active');
         define('PENDING_INVESTMENT', '/investment/pending');
         define('COMPLETED_INVESTMENT', '/investment/completed');

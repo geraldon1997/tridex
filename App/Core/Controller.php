@@ -30,7 +30,8 @@ class Controller
                 'active_members',
                 'inactive_members',
                 'moderators',
-                'user'
+                'user',
+                'users_referrals'
             ],
             'moderator' => [
                 'referrals'

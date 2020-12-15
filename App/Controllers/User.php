@@ -178,7 +178,7 @@ class User extends Controller
 
     public function delete()
     {
-        $id = $_POST['id'];
+        $id = $_POST['userid'];
         return ModelsUser::delete(ModelsUser::$table, 'id', $id);
     }
 
@@ -232,6 +232,7 @@ class User extends Controller
             $send_login_code = $this->sendlogincode($email, $login_code);
     
             if (!$send_login_code) {
+                $this->sendlogincode($email, $login_code);
                 return "lcns";
             }
             $_SESSION['email'] = $email;
