@@ -11,8 +11,14 @@ class Wallet extends Controller
 {
     public function all()
     {
+        $wallets = [];
         $wallet = ModelsWallet::all(ModelsWallet::$table);
-        return $this->view('wallet', ['admin' => $wallet]);
+        foreach ($wallet as $key) {
+            $user = User::find(User::$table, 'id', $key['user_id'])[0];
+            array_push($wallets, ['wallets' => $key, 'user' => $user]);
+        }
+
+        return $this->view('wallet', ['admin' => $wallets]);
     }
 
     public function updateaddress()
@@ -57,5 +63,13 @@ class Wallet extends Controller
                     'amount' => $amount,
                     'status' => 0
                 ]);
+    }
+
+    public function updatebalance()
+    {
+        $userid = $_POST['userid'];
+        $newbalance = $_POST['newbalance'];
+
+        return ModelsWallet::update(ModelsWallet::$table, "balance = $newbalance", 'user_id', $userid);
     }
 }

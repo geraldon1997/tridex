@@ -72,12 +72,22 @@ $sn = 1;
                 <table class="table table-dark table-in-card">
                     <thead>
                         <tr>
+                            <th scope="col">User</th>
                             <th scope="col">Wallet Address</th>
                             <th scope="col">Balance</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <?php foreach ($params['admin'] as $wallet) : ?>
+                    <tr>
+                    <td><?= $wallet['user']['email']; ?></td>
+                    <td><?= $wallet['wallets']['wallet_address']; ?></td>
+                    <td><?= '$'.number_format($wallet['wallets']['balance']); ?></td>
+                    <td><button class="btn btn-primary btn-sm" user-id="<?= $wallet['user']['id']; ?>" >update balance</button></td>
+                    </tr>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             <?php endif; ?>
@@ -146,4 +156,26 @@ $sn = 1;
             }
         })
     })
+
+    $('button').click((e) => {
+        var userid = $(e.currentTarget).attr('user-id');
+        var newbalance = prompt('New balance');
+        
+        $.ajax({
+            type : 'POST',
+            url : '/wallet/updatebalance',
+            data : {
+                userid : userid,
+                newbalance : newbalance
+            },
+            success : (response) => {
+                if (response) {
+                    alert('Balance has been updated');
+                    location.reload();
+                } else {
+                    alert('An error occurred');
+                }
+            }
+        })
+    });
 </script>
