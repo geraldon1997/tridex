@@ -6,7 +6,7 @@ $sn = 1;
 ?>
 <h1 class="dash-title">Investments</h1>
 
-<?php if (User::isMember()) : ?>
+<?php if (User::isMember() || User::isModerator()) : ?>
     <?php include_once 'investment_form.php'; ?>
 <?php endif; ?>
 <hr>

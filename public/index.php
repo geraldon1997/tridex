@@ -47,6 +47,12 @@ if (isset($_SESSION['email'])) {
         define('COMPLETED_WITHDRAWAL', '/withdrawal/completed');
 /************************************************************************************/
         define('WALLET', '/wallet/all');
+        define('VIEW_USER_INVESTMENTS', '/investment/user/');
+    }
+
+    if (User::isModerator()) {
+        define('VIEW_USER', '/user/details/');
+        define('VIEW_USER_INVESTMENTS', '/referral/investments/');
     }
 }
 

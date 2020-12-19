@@ -35,7 +35,8 @@ class Controller
                 'users_investments'
             ],
             'moderator' => [
-                'users_investments'
+                'users_investments',
+                'user'
             ]
         ],
         'nonauth' => [

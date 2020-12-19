@@ -3,17 +3,18 @@
 use App\Models\Investment;
 use App\Models\Package;
 use App\Models\User;
+use App\Models\PaymentMethod;
 
 $sn = 1;
 ?>
 <h1 class="dash-title">Investments</h1>
 
-<?php if (User::isMember()) : ?>
+<?php if (User::isMember() || User::isModerator()) : ?>
     <?php include_once 'investment_form.php'; ?>
 <?php endif; ?>
 <hr>
-<h4>Deposit <i id="coin-amount"></i> worth of <i id="coin-name"></i> <input type="text" id="btc-address" class="form-control" value="<?= BITCOIN_ADDRESS; ?>" readonly> <button id="copy-address" class="btn btn-primary btn-sm"> copy address</button></h4>
-<hr>
+<div class="payment-details"></div>
+
 <div class="row">
 <div class="col-lg-12">
     <div class="card spur-card">
@@ -31,6 +32,7 @@ $sn = 1;
                         <th scope="col">#</th>
                         <th scope="col">Package</th>
                         <th scope="col">Amount</th>
+                        <th scope="col">Coin</th>
                         <th scope="col">ROI</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
@@ -42,14 +44,18 @@ $sn = 1;
                             <td><?= $sn++; ?></td>
                             <td><?= Package::package($investment['package_id'])[0]['package_name'] ?></td>
                             <td>$<?= number_format($investment['amount']) ?></td>
+                            <td><?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['method']; ?></td>
                             <td>$<?= number_format($investment['expected_amount']) ?></td>
-                            <td><?= !$investment['is_active'] ? '<button class="btn btn-outline-warning btn-sm">pending</button>' : '' ?></td>
+                            <td>
+                                <?= !$investment['is_active'] ? '<button class="btn btn-outline-warning btn-sm">pending</button>' : '' ?>
+                            </td>
                             
                             <td>
                                 <?php if ($investment['is_paid']) : ?>
                                     <i class="btn btn-outline-warning btn-sm" >Awaiting Confirmation</i>
                                 <?php else : ?>
-                                    <button class="btn btn-success btn-sm" inv-id="<?= $investment['id']; ?>">has paid</button>
+                                    <button class="btn btn-primary btn-sm" id="deposit" wallet-address="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['address'] ?>" payment-method="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['method'] ?>">deposit</button>
+                                    <button class="btn btn-success btn-sm" id="paid" inv-id="<?= $investment['id']; ?>">has paid</button>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -95,14 +101,36 @@ $sn = 1;
 
 </div>
 
-<?php if (User::isMember()) : ?>
+<?php if (User::isMember() || User::isModerator()) : ?>
 <script>
     $('button').click((e) => {
         
-        var formdata = $(e.target).attr('inv-id');
-        
-        if (formdata) {
+        var btn = $(e.currentTarget);
+        var btnid = btn.attr('id');
+
+        if (btnid === 'deposit') {
+            var amount = 100;
+            var coin = btn.attr('payment-method');
+            var address = btn.attr('wallet-address');
+
+            var html = "<h4>";
+                html += 'Deposit';
+                html += '<i> $'+amount+' </i>';
+                html += 'worth of <b>' + coin + '</b> ';
+                html += 'to the wallet address below';
+                html += '<input type="text" id="btc-address" class="form-control" value="'+address+'" readonly>';
+                html += '<button id="copy-address" class="btn btn-primary btn-sm"> copy address</button>';
+                html += "</h4><hr>";
+
+            $('.payment-details').html(html);
+
+            copyaddress();
+
+        } else if (btnid === 'paid') {
+            var formdata = btn.attr('inv-id');
+
             $(e.target).prop('disabled', 'true').html('processing . . .');
+
             $.ajax({
                 type : 'POST',
                 url : '/investment/pay',
@@ -118,8 +146,10 @@ $sn = 1;
                         location.reload();
                     }
                 }
-            })
+            });
+            
         }
+        
     });
 </script>
 
@@ -153,17 +183,19 @@ $sn = 1;
 <?php endif; ?>
 
 <script>
-    $('#copy-address').click(() => {
-        var addr = $('#btc-address');
-        addr.select();
-        
-        document.execCommand('copy');
-        addr.css('background', 'white');
-        $('#copy-address').html('address copied . . .')
+    function copyaddress() {
+        $('#copy-address').click(() => {
+            var addr = $('#btc-address');
+            addr.select();
+            
+            document.execCommand('copy');
+            addr.css('background', 'white');
+            $('#copy-address').html('address copied . . .')
 
-        setTimeout(() => {
-            $('#copy-address').html('copy address')
-        }, 2000);
-        
-    })
+            setTimeout(() => {
+                $('#copy-address').html('copy address')
+            }, 2000);
+            
+        })
+    }
 </script>

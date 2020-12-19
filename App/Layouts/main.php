@@ -1,5 +1,6 @@
 <?php
 use App\Core\Request;
+
 ?>
 <!doctype html>
 <html lang="en">

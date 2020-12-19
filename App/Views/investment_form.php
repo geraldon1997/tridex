@@ -1,11 +1,12 @@
 <?php
 use App\Models\Package;
+use App\Models\PaymentMethod;
 ?>
 <div class="">
         <form class="form" id="invest-form">
             <div class="form-row">
 
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-3">
                     <select name="package" id="package" class="form-control">
                         <option value="">choose package . . .</option>
                         <?php foreach (Package::allPackages() as $package) : ?>
@@ -14,8 +15,17 @@ use App\Models\Package;
                     </select>
                 </div>
 
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-3">
                     <input type="text" name="amount" id="amount" class="form-control" placeholder="amount" minlength="3" maxlength="5" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <select name="coin" id="coin" class="form-control">
+                        <option value="">choose payment option . . .</option>
+                        <?php foreach (PaymentMethod::allMethods() as $coin) : ?>
+                            <option value="<?= $coin['id'] ?>"><?= $coin['method'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 
@@ -95,16 +105,16 @@ use App\Models\Package;
                     $('#invest').html('successful');
                     setTimeout(() => {
                         alert('Investment Successful');
-                    }, 3000);
+                    }, 1000);
                     setTimeout(() => {
                         window.location = "<?= PENDING_INVESTMENT; ?>"
-                    }, 5000);
+                    }, 2000);
                 } else {
                     $('#invest').html('Error Occurred');
                     setTimeout(() => {
                         alert('An error occurred');
                         $('#invest').removeAttr('disabled').html('invest');
-                    }, 3000);
+                    }, 1000);
                 }
             }
         });
