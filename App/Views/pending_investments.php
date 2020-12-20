@@ -54,7 +54,7 @@ $sn = 1;
                                 <?php if ($investment['is_paid']) : ?>
                                     <i class="btn btn-outline-warning btn-sm" >Awaiting Confirmation</i>
                                 <?php else : ?>
-                                    <button class="btn btn-primary btn-sm" id="deposit" wallet-address="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['address'] ?>" payment-method="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['method'] ?>">deposit</button>
+                                    <button class="btn btn-primary btn-sm" id="deposit" amount="<?= number_format($investment['amount']); ?>" wallet-address="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['address'] ?>" payment-method="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['method'] ?>">deposit</button>
                                     <button class="btn btn-success btn-sm" id="paid" inv-id="<?= $investment['id']; ?>">has paid</button>
                                 <?php endif; ?>
                             </td>
@@ -109,7 +109,7 @@ $sn = 1;
         var btnid = btn.attr('id');
 
         if (btnid === 'deposit') {
-            var amount = 100;
+            var amount = (btn.attr('amount'));
             var coin = btn.attr('payment-method');
             var address = btn.attr('wallet-address');
 
