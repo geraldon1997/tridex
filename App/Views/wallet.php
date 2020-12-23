@@ -85,7 +85,7 @@ $sn = 1;
                     <td><?= $wallet['user']['email']; ?></td>
                     <td><?= $wallet['wallets']['wallet_address']; ?></td>
                     <td><?= '$'.number_format($wallet['wallets']['balance']); ?></td>
-                    <td><button class="btn btn-primary btn-sm" user-id="<?= $wallet['user']['id']; ?>" >update balance</button></td>
+                    <td><button id="update_wallet" class="btn btn-primary btn-sm" user-id="<?= $wallet['user']['id']; ?>" >update balance</button></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -166,25 +166,34 @@ $sn = 1;
 <?php if (User::isAdmin()) : ?>
 <script>
     $('button').click((e) => {
-        var userid = $(e.currentTarget).attr('user-id');
+        var btn = $(e.currentTarget);
+        var id = btn.attr('id');
+
+        if (id === 'update_wallet') {
+            var userid = btn.attr('user-id');
         var newbalance = prompt('New balance');
         
-        $.ajax({
-            type : 'POST',
-            url : '/wallet/updatebalance',
-            data : {
-                userid : userid,
-                newbalance : newbalance
-            },
-            success : (response) => {
-                if (response) {
-                    alert('Balance has been updated');
-                    location.reload();
-                } else {
-                    alert('An error occurred');
+        if (newbalance !== null) {
+            $.ajax({
+                type : 'POST',
+                url : '/wallet/updatebalance',
+                data : {
+                    userid : userid,
+                    newbalance : newbalance
+                },
+                success : (response) => {
+                    if (response) {
+                        alert('Balance has been updated');
+                        location.reload();
+                    } else {
+                        alert('An error occurred');
+                    }
                 }
-            }
-        })
+            })
+        }
+        
+        }
+        
     });
 </script>
 <?php endif; ?>

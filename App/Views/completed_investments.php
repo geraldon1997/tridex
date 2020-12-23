@@ -91,7 +91,7 @@ $sn = 1;
 
 </div>
 
-<?php if (User::isMember()) : ?>
+<?php if (User::isMember() || User::isModerator()) : ?>
 <script>
     $('form').submit((e) => {
         e.preventDefault();
