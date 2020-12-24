@@ -93,7 +93,7 @@ $inv = new Cinvest;
                 <div class="stats-data">
                     <div class="stats-number"><?= Investment::current() ? '$'.number_format(Investment::current()[0]['amount']) : '0'; ?></div>
                     <div class="stats-change">
-                        <span class="stats-percentage" id="roi"></span>
+                        <span class="stats-percentage" id="roi"><?= Investment::current() ? '$'.number_format(Investment::current()[0]['expected_amount']) : '0' ?></span>
                         <span class="stats-timeframe" id="topup">ROI</span>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ $inv = new Cinvest;
                 "width": '100%',
                 "height": 610,
                 "symbol": "NASDAQ:AAPL",
-                "interval": "15",
+                "interval": "1",
                 "timezone": "Etc/UTC",
                 "theme": "dark",
                 "style": "4",
@@ -144,11 +144,12 @@ $inv = new Cinvest;
         </div>
     </div>
 </div>
+<input type="hidden" id="expected_amount" value="<?= Investment::current()[0]['expected_amount'] ?>">
+<input type="hidden" id="maturity" value="<?= date('s', strtotime(Investment::current()[0]['period'])) ?>">
 
     <?php else : ?>
     <div class="alert alert-secondary" role="alert"> Please update your <a href="<?= PROFILE; ?>" class="btn btn-outline-primary">Profile</a> before you can proceed </div>
     <?php endif; ?>
 <?php endif; ?>
-
 
 

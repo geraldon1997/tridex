@@ -28,7 +28,7 @@ $sn = 1;
                             <th scope="col">#</th>
                             <th scope="col">package</th>
                             <th scope="col">Amount</th>
-                            <th scope="col">Accumulated</th>
+                            <th scope="col">Maturity Date</th>
                             <th scope="col">ROI</th>
                             <th scope="col">Status</th>
                         </tr>
@@ -42,7 +42,7 @@ $sn = 1;
                             <td><?= $sn++; ?></td>
                             <td><?= Package::package($investment['package_id'])[0]['package_name'] ?></td>
                             <td><?= '$'.number_format($investment['amount']); ?></td>
-                            <td><?= '$'.number_format($investment['accumulated_amount']); ?></td>
+                            <td><?= date('d-m-Y', $investment['period']) ?></td>
                             <td><?= '$'.number_format($investment['expected_amount']); ?></td>
                             <td><button class="btn btn-outline-primary btn-sm">active</button></td>
                         </tr>

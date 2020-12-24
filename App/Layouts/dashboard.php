@@ -71,9 +71,7 @@ use App\Models\User;
                     <i class="fas fa-user-friends"></i> Referrals
                 </a>
 
-                <a href="<?= BONUS; ?>" class="dash-nav-item">
-                    <i class="fas fa-plus-square"></i> Bonus
-                </a>
+                
                 <?php endif; ?>
             </nav>
         </div>
