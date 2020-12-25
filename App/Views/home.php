@@ -650,9 +650,9 @@ Having many investment methods allows us to maintain a constant high interest ra
                             
                         </div>
                         <div class="space-30"></div>
-                        <a href="#" class="gradient-btn apps-btn"> <i class="zmdi zmdi-google-play"></i>Google Playstore</a>
+                        <a onclick="alert('Our Mobile App is Coming soon')" class="gradient-btn apps-btn"> <i class="zmdi zmdi-google-play"></i>Google Playstore</a>
 
-                        <a href="#" class="gradient-btn apps-btn apps-btn-2"> <i class="zmdi zmdi-apple"></i>Apple Appstore</a>
+                        <a onclick="alert('Our Mobile App is Coming soon')" class="gradient-btn apps-btn apps-btn-2"> <i class="zmdi zmdi-apple"></i>Apple Appstore</a>
                     </div>
                     <div class="col-12 col-lg-5 offset-1">
                         <div class="apps-img">
