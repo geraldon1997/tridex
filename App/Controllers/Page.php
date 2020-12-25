@@ -16,9 +16,9 @@ class Page extends Controller
         return $this->view('about');
     }
 
-    public function how()
+    public function guide($data)
     {
-        return $this->view('how');
+        //
     }
 
     public function dbseeder()

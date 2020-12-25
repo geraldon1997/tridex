@@ -54,15 +54,15 @@ use App\Core\Request;
                     <div class="main-menu text-center">
                         <nav>
                             <ul id="slick-nav">
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#home' : HOME.'#home' ?>">home</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#about' : HOME.'#about' ?>">About</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#Paper' : HOME.'#Paper' ?>">White Paper</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#home'; ?>">home</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#about' ?>">About</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#Paper' ?>">White Paper</a></li>
                                 
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#plans' : HOME.'#plans' ?>">Plans</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#roadmap' : HOME.'#roadmap' ?>">WapSpeed</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#team' : HOME.'#team' ?>">Team</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#apps' : HOME.'#apps' ?>">APP</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#faq' : HOME.'#faq' ?>">Why Us</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#plans' ?>">Plans</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#roadmap' ?>">WapSpeed</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#team' ?>">Team</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#apps' ?>">APP</a></li>
+                                <li><a class="scroll" href="<?= HOME.'#faq' ?>">Why Us</a></li>
                                 
                             </ul>
                         </nav>
@@ -171,6 +171,8 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+
 
   </body>
 </html>

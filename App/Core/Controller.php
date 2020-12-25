@@ -47,6 +47,7 @@ class Controller
             'forgotpassword',
             'resetpassword',
             'verifyuser',
+            'paper'
         ]
     ];
 

@@ -21,6 +21,8 @@ define('RESET_PASSWORD', '/user/resetpassword');
 define('PROFILE', '/user/profile');
 define('DASHBOARD', '/user/dashboard');
 
+define('WHITE_PAPER', APP_URL.'App/Views/tridex_white_paper_');
+
 define('REFERRALS', '/user/referrals');
 define('ACTIVE_MEMBERS', '/user/activemembers');
 define('MODERATORS', '/user/moderators');

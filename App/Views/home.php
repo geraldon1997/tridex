@@ -239,16 +239,19 @@ Having many investment methods allows us to maintain a constant high interest ra
             </div>
             <div class="row text-center">
                 <div class="col-6 col-lg">
-                    <div class="single-document">
-                        <div class="document-flag">
-                            <img src="<?= ASSETS; ?>img/flag-1.png" alt="">
+                    <a href="<?= WHITE_PAPER.'english.pdf'; ?>" download>
+                        <div class="single-document">
+                            <div class="document-flag">
+                                <img src="<?= ASSETS; ?>img/flag-1.png" alt="">
+                            </div>
+                            <button class="single-document-text">
+                                <span>English</span>
+                            </button>
                         </div>
-                        <button class="single-document-text">
-                            <span>English</span>
-                        </button>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-6 col-lg">
+                <a href="<?= WHITE_PAPER.'spanish.pdf'; ?>" download>
                     <div class="single-document">
                         <div class="document-flag">
                             <img src="<?= ASSETS; ?>img/flag-2.png" alt="">
@@ -257,8 +260,10 @@ Having many investment methods allows us to maintain a constant high interest ra
                             <span>Spanish</span>
                         </button>
                     </div>
+                </a>
                 </div>
                 <div class="col-6 col-lg">
+                <a href="<?= WHITE_PAPER.'russian.pdf'; ?>" download=>
                     <div class="single-document">
                         <div class="document-flag">
                             <img src="<?= ASSETS; ?>img/flag-3.png" alt="">
@@ -267,8 +272,10 @@ Having many investment methods allows us to maintain a constant high interest ra
                             <span>Russian</span>
                         </button>
                     </div>
+                </a>
                 </div>
                 <div class="col-6 col-lg">
+                <a href="<?= WHITE_PAPER.'arabic.pdf'; ?>" download>
                     <div class="single-document">
                         <div class="document-flag">
                             <img src="<?= ASSETS; ?>img/flag-4.png" alt="">
@@ -277,8 +284,10 @@ Having many investment methods allows us to maintain a constant high interest ra
                             <span>Arabic</span>
                         </button>
                     </div>
+                </a>
                 </div>
                 <div class="col-6 col-lg">
+                <a href="<?= WHITE_PAPER.'portuguese.pdf'; ?>" download>
                     <div class="single-document">
                         <div class="document-flag">
                             <img src="<?= ASSETS; ?>img/flag-5.png" alt="">
@@ -287,6 +296,7 @@ Having many investment methods allows us to maintain a constant high interest ra
                             <span>Portuguese</span>
                         </button>
                     </div>
+                </a>
                 </div>
             </div>
         </div>
