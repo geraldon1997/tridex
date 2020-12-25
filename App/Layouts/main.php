@@ -57,12 +57,13 @@ use App\Core\Request;
                                 <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#home' : HOME.'#home' ?>">home</a></li>
                                 <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#about' : HOME.'#about' ?>">About</a></li>
                                 <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#Paper' : HOME.'#Paper' ?>">White Paper</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#token' : HOME.'#token' ?>">Token Sale</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#roadmap' : HOME.'#roadmap' ?>">Roadmap</a></li>
+                                
+                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#plans' : HOME.'#plans' ?>">Plans</a></li>
+                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#roadmap' : HOME.'#roadmap' ?>">WapSpeed</a></li>
                                 <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#team' : HOME.'#team' ?>">Team</a></li>
                                 <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#apps' : HOME.'#apps' ?>">APP</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#faq' : HOME.'#faq' ?>">FAQ</a></li>
-                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#contact' : HOME.'#contact' ?>">Contact</a></li>
+                                <li><a class="scroll" href="<?= (Request::path() === 'HOME') ? '#faq' : HOME.'#faq' ?>">Why Us</a></li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -90,7 +91,7 @@ use App\Core\Request;
                             <a href="#"><img src="<?= ASSETS; ?>img/logo.png" style="height: 50px !important;" alt=""></a>
                         </div>
                         <div class="space-20"></div>
-                        <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. </p>
+                        <p>Tridex is a leading Cryptocurrency trading Group that utilizes innovative proprietary technologies to provide managed cryptocurrency trading services to yield higher profits.</p>
                         <div class="space-10"></div>
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
@@ -101,20 +102,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 <div class="col-12 col-sm-6 col-lg-2">
                     <div class="single-footer">
                         <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Token Sale</a></li>
-                            <li><a href="#">Roadmap</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#about">About</a></li>
+                            <!-- <li><a href="#token">Token Sale</a></li> -->
+                            <li><a href="#plans">Plans</a></li>
+                            <li><a href="#roadmap">WapSpeed</a></li>
+                            <!-- <li><a href="#contact">Contact</a></li> -->
                         </ul>
                     </div>
                 </div>
                 <div class="col-6 col-lg-2">
                     <div class="single-footer">
                         <ul>
-                            <li><a href="#">White Paper</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">APP</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#Paper">White Paper</a></li>
+                            <li><a href="#team">Team</a></li>
+                            <li><a href="#apps">APP</a></li>
+                            <li><a href="#faq">Why Us</a></li>
                         </ul>
                     </div>
                 </div>

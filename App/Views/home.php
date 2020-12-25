@@ -10,8 +10,7 @@
                              <h1>Fast Growing ICO 
                             Agency for Blockchain
                             Investors and Founders </h1>
-                            <h4>Sifting through teaspoons of clay and sand scraped from the 
-    floors of caves, German researchers have managed.</h4>
+                            <h4>Tridex is a leading Cryptocurrency trading Group that utilizes innovative proprietary technologies to provide managed cryptocurrency trading services to yield higher profits.</h4>
                         </div>
                         <div class="welcome-btn">
                             <a href="<?= SIGNUP; ?>" class="gradient-btn v2 mr-20">Register for the ICO</a>
@@ -101,7 +100,15 @@
                     <div class="about-mid-text">
                         <h1>A Platform for Cyrptocurrency Exchange and shares</h1>
                         <div class="space-10"></div>
-                        <p>Mauna Loa, the biggest volcano on Earth  half the Island of Hawaii. Just 35 miles to the northeast, Mauna Kea, known to native Hawaiians as Mauna a Wakea, rises nearly 14,000 feet above sea level.  If they are so close together, how did they develop in two parallel tracks .Sifting through teaspoons of clay and sand scraped from the floors of caves.</p>
+                        <p>Tridex is a registered legal international investment company. The company was created by a group of qualified experts, professional bankers, traders and analysts who specialized in the stock, bond, futures, currencies, gold, silver and oil trading with having more than ten years of extensive practical experiences of combined personal skills, knowledge, talents and collective ambitions for success.
+<br>
+We believe that superior investment performance is achieved through a skillful balance of three core attributes: knowledge, experience and adaptability.
+<br>
+There is only one way to be on the cutting edge – commitment to innovation. We do our best to achieve a consistent increase in investment performance for our clients, and superior value-add. We appreciate our clients loyalty and value the relationships we build with each customer. No matter what country you come from, our professional managers will help you to choose the investment product that best fits your demands.
+<br>
+Our managers are constantly working on implementing unique trading methods with the most advanced and effective trading technology, competitive services, high-quality performance, genuine practices, excellent customer support service and fund safety that allow us to work successfully on the market in a highly profitable way.
+<br>
+Having many investment methods allows us to maintain a constant high interest rate for our clients. One of our strongest advantages over competitors is that we provide the utmost flexibility and the most important insurance on funds being invested with us. The company provides Risk- Free Investment products to global investors, which is a landmark for the company performance.</p>
                     </div>
                     <div class="space-30"></div>
                     <a href="https://t.me/joinchat/AAAAAEwFUAppJ-RhXUSM1A" class="gradient-btn v2 about-btn"> <i class="fa fa-send-o"></i> join us on telegram</a>
@@ -122,8 +129,8 @@
                             <img src="<?= ASSETS; ?>img/about-icon-1.png" alt="">
                         </div>
                         <div class="single-about-text">
-                            <h4>Exciting Opportunity</h4>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a not quite tuned in radio station rises and for a while drowns</p>
+                            <h4>Create an Account</h4>
+                            <p>Click on Get Started to create a free account. Login with your email and confirm your Registration</p>
                         </div>
                     </a>
                 </div>
@@ -133,8 +140,8 @@
                             <img src="<?= ASSETS; ?>img/about-icon-2.png" alt="">
                         </div>
                         <div class="single-about-text">
-                            <h4>Vetted ICO Marketplace</h4>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a not quite tuned in radio station rises and for a while drowns</p>
+                            <h4>Choose a Plan</h4>
+                            <p>We have Flexible investment plans to choose from. Choose the plan that suits you and deposit the amount you want considering the minimum and maximum deposit</p>
                         </div>
                     </a>
                 </div>
@@ -144,8 +151,8 @@
                             <img src="<?= ASSETS; ?>img/about-icon-3.png" alt="">
                         </div>
                         <div class="single-about-text">
-                            <h4>Diverse Profit Ways</h4>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a not quite tuned in radio station rises and for a while drowns</p>
+                            <h4>Withdraw Funds</h4>
+                            <p>Our payment system is fully automated. On plan maturity, your fund will reflect on your dashboard then you can click on withdaw to send your fund to your external Blockchain wallet.</p>
                         </div>
                     </a>
                 </div>
@@ -176,8 +183,8 @@
                 </div>
                 <div class="col-6 col-lg-6">
                     <div class="single-ico">
-                        <h5><a href="#">ETH</a>collected 90252</h5>
-                        <h5><a href="#">BTC</a> collected 90152</h5>
+                        <h5><a href="#">ETH</a>collected 9252</h5>
+                        <h5><a href="#">BTC</a> collected 4152</h5>
                         <h5><a href="#">LTH</a>collected 5052</h5>
                     </div>
                 </div>
@@ -210,7 +217,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <a href="<?= SIGNIN; ?>" class="gradient-btn v2">Get onboard</a>
+                    <a href="<?= SIGNUP; ?>" class="gradient-btn v2">Get onboard</a>
                 </div>
             </div>
         </div>
@@ -289,9 +296,9 @@
     <!--distibution-bg start-->
     <div class="distibution-bg">
         <!---distibution area start-->
-        <div class="distibution wow fadeInUp" id="token">
-            <div class="container">
-                <div class="row">
+        <div class="distibution wow fadeInUp" id="plans">
+            <!-- <div class="container"> -->
+                <!-- <div class="row">
                     <div class="col-12 text-center">
                     <div class="heading">
                         <h5>Token Distribution</h5>
@@ -299,9 +306,9 @@
                         <h1>initial distibution</h1>
                     </div>
                     <div class="space-60"></div>
-                </div>
-                </div>
-                <div class="row">
+                </div> -->
+                <!-- </div> -->
+                <!-- <div class="row">
                     
                     <div class="col-6 text-right">
                         <div class="distibution-svg distibution-svg-1">
@@ -318,14 +325,14 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="space-90"></div>
                 <div class="row">
                     <div class="col-12 text-center">
                     <div class="heading">
-                        <h5>Sale breakdown</h5>
+                        <h5>Plans</h5>
                         <div class="space-10"></div>
-                        <h1>Token Sales Contribution</h1>
+                        <h1>Our Robust Investment Plans</h1>
                     </div>
                     <div class="space-90"></div>
                 </div>
@@ -334,10 +341,10 @@
                     <div class="col-2 text-right">
                         <div class="distibution-d distibution-d-2">
                             <ul>
-                                <li class="distibution-list-5"><span>40% </span>HR & Development</li>
-                                <li class="distibution-list-6"><span>30% </span>Branding & Markting</li>
-                                <li class="distibution-list-7"><span>20% </span>Posiblle Buyout</li>
-                                <li class="distibution-list-8"><span>10% </span>Legal Advisory </li>
+                                <li class="distibution-list-5"><span>Diamond </span>5% daily for 30 days (150%)</li>
+                                <li class="distibution-list-6"><span>Gold </span>3% for 15 days (45%)</li>
+                                <li class="distibution-list-7"><span>Silver </span>2.5% daily for 10 days (25%)</li>
+                                <li class="distibution-list-8"><span>Bronze </span>2% daily for 5 days (10%)</li>
                             </ul>
                         </div>
                     </div>
@@ -360,9 +367,9 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="heading">
-                        <h5>history Timeline</h5>
+                        <h5>OUR WAPSPEED WITHDRAWAL PROCESS</h5>
                         <div class="space-10"></div>
-                        <h1>Development Roadmap</h1>
+                        <!-- <h1>Development Roadmap</h1> -->
                     </div>
                     <div class="space-60 d-none d-sm-block"></div>
                 </div>
@@ -378,10 +385,10 @@
                         </div>
                         <div class="space-30"></div>
                         <div class="roadmap-text">
-                            <p>01.03.2017</p>
+                            <!-- <p>01.03.2017</p> -->
                             <div class="space-10"></div>
-                            <h5>Concept and whitepaper</h5>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a in token.</p>
+                            <h5>Intiate withdrawal</h5>
+                            <p>Visit site wallet from your dashboard and intiate withdrawal</p>
                         </div>
                     </div>
                 </div>
@@ -395,9 +402,9 @@
                             </div>
                             <div class="col-7">
                                 <div class="roadmap-text">
-                                    <p>21.06 .2017</p>
-                                    <h5>Recruitment of Our team</h5>
-                                    <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a in token.</p>
+                                    <!-- <p>21.06 .2017</p> -->
+                                    <h5>GET APPROVED</h5>
+                                    <p>Our withdrawal department will send you a confirmatory email, once your withdrawal have been approved.</p>
                                 </div>
                             </div>
                         </div>
@@ -410,65 +417,14 @@
                         </div>
                         <div class="space-30"></div>
                         <div class="roadmap-text">
-                            <p>31.08.2017</p>
+                            <!-- <p>31.08.2017</p> -->
                             <div class="space-10"></div>
-                            <h5>Core Development</h5>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a in token.</p>
+                            <h5>GET PAID</h5>
+                            <p>Once your withdrawal have been approved, your money will be sent to your blockchain receiving address. All process will be done at wapspeed</p>
                         </div>
                     </div>
                 </div>
-                <div class="roadmap-item align-self-center">
-                    <div class="single-roadmap road-right">
-                        <div class="row">
-                            <div class="col-5 align-self-center">
-                                <div class="single-roadmap-img">
-                                    <img src="<?= ASSETS; ?>img/roadmap-5.png" alt="">
-                                </div>
-                        
-                            </div>
-                            <div class="col-7">
-                                <div class="roadmap-text">
-                                    <p>31.11.2017</p>
-                                    <h5>Main Development</h5>
-                                    <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a in token.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="single-roadmap text-center road-left">
-                        <div class="single-roadmap-img">
-                            <img src="<?= ASSETS; ?>img/roadmap-4.png" alt="">
-                        </div>
-                        <div class="space-30"></div>
-                        <div class="roadmap-text">
-                            <p>31.08.2017</p>
-                            <div class="space-10"></div>
-                            <h5>Core Development</h5>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a in token.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="roadmap-item align-self-center">
-                    <div class="single-roadmap road-right">
-                        <div class="row">
-                            <div class="col-5 align-self-center">
-                                <div class="single-roadmap-img">
-                                    <img src="<?= ASSETS; ?>img/roadmap-5.png" alt="">
-                                </div>
-                        
-                            </div>
-                            <div class="col-7">
-                                <div class="roadmap-text">
-                                    <p>31.11.2017</p>
-                                    <h5>Main Development</h5>
-                                    <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a in token.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!--  -->
             </div>
         </div>
     </div>
@@ -502,13 +458,13 @@
                                 <h6>FOUNDER & CEO</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -523,13 +479,13 @@
                                 <h6>SOFTWARE ENGINEER</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -544,13 +500,13 @@
                                 <h6>MARKETING ANALYST</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -565,13 +521,13 @@
                                 <h6>Head of Design</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -602,13 +558,13 @@
                                 <h6>ADVISOR</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -623,13 +579,13 @@
                                 <h6>ADVISOR</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -644,13 +600,13 @@
                                 <h6>ADVISOR</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -665,13 +621,13 @@
                                 <h6>ADVISOR</h6>
                             </div>
                             <div class="space-10"></div>
-                            <div class="single-team-social">
+                            <!-- <div class="single-team-social">
                                 <ul>
                                     <li><a class="ico-1" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="ico-2" href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a class="ico-3" href="#"><i class="fa fa-twitter "></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -688,10 +644,10 @@
                         <div class="heading">
                             <h5>MOBILE APP</h5>
                             <div class="space-10"></div>
-                            <h1>Track from Anywhere</h1>
+                            <h1>Track Your Investment from anywhere</h1>
                             <div class="space-20"></div>
-                            <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves  but every day, they construct one or more spacious houses that can exceed . </p>
-                            <p>The recording starts with the patter of a summer squall. Later, a drifting tone like that of a not-quite-tuned-in radio station rises and for a while drowns out the patter.</p>
+                            <p>With our mobile app, you can login, invest and track your investments from anywhere aroudn the world</p>
+                            
                         </div>
                         <div class="space-30"></div>
                         <a href="#" class="gradient-btn apps-btn"> <i class="zmdi zmdi-google-play"></i>Google Playstore</a>
@@ -714,9 +670,9 @@
                 <div class="row">
                     <div class="col-12 text-center">
                     <div class="heading">
-                        <h5>faq</h5>
+                        <!-- <h5>faq</h5> -->
                         <div class="space-10"></div>
-                        <h1>Frequently Asked Questions </h1>
+                        <h1>WHY YOU SHOULD INVEST WITH US </h1>
                     </div>
                     <div class="space-60"></div>
                 </div>
@@ -725,10 +681,10 @@
                     <div class="col-12 text-center">
                         <div class="faq-list">
                             <ul class="nav nav-pills" id="pills-tab">
-                                <li><a class="active" data-toggle="pill" href="#one">General Questions</a></li>
-                                <li><a data-toggle="pill" href="#two">ico</a></li>
-                                <li><a data-toggle="pill" href="#three">token</a></li>
-                                <li><a data-toggle="pill" href="#four">Cryptocurrency</a></li>
+                                <!-- <li><a class="active" data-toggle="pill" href="#one">General Questions</a></li> -->
+                                <!-- <li><a data-toggle="pill" href="#two">ico</a></li> -->
+                                <!-- <li><a data-toggle="pill" href="#three">token</a></li> -->
+                                <!-- <li><a data-toggle="pill" href="#four">Cryptocurrency</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -740,37 +696,37 @@
                         <div class="container-fluid">
                             <div class="faq-carousel owl-carousel">
                                 <div class="single-faq">
-                                    <h4>Why I should invest in ICO ?</h4>
+                                    <h4>We're Certified as one of the most trusted cryptocurrency investment company</h4>
                                     <div class="space-20"></div>
-                                    <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day.</p>
+                                    <p>Tridex Limited is fully registered to operate as a Limited Liability Company</p>
                                     <div class="space-20"></div>
-                                    <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a>
+                                    <!-- <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a> -->
                                 </div>
                                 <div class="single-faq">
-                                    <h4>The Risks of Investing in ICO ?</h4>
+                                    <h4>We're Secured in cryptocurrency investment</h4>
                                     <div class="space-20"></div>
-                                    <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day.</p>
+                                    <p>We are security conscious and value your data, The entire system is protected with Comodo. Our system is secured with high level SSL</p>
                                     <div class="space-20"></div>
-                                    <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a>
+                                    <!-- <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a> -->
                                 </div>
                                 <div class="single-faq">
-                                    <h4>How to Trade Cryptocurrencies ?</h4>
+                                    <h4>We're Profitable in cryptocurrency investment</h4>
                                     <div class="space-20"></div>
-                                    <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day</p>
+                                    <p>Our various investment plans are convenient for anybody that wants to invest in cryptocurrency</p>
                                     <div class="space-20"></div>
-                                    <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a>
+                                    <!-- <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a> -->
                                 </div>
                                 <div class="single-faq">
-                                    <h4>How to Trade Cryptocurrencies ?</h4>
+                                    <h4>We're Global</h4>
                                     <div class="space-20"></div>
-                                    <p>Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day</p>
+                                    <p>Tridex is a global bitcoin investment company. You can visit us from any country of the world</p>
                                     <div class="space-20"></div>
-                                    <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a>
+                                    <!-- <a href="#" class="readmore-btn"><i class="fa fa-angle-right"></i>readmore</a> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="two">
+                    <!-- <div class="tab-pane fade" id="two">
                         <div class="container-fluid">
                             <div class="faq-carousel owl-carousel">
                                 <div class="single-faq">
@@ -871,7 +827,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             <div class="space-90"></div>
         </div>
@@ -880,12 +836,12 @@
     <!--team bg area end-->
 
     <!--community area start-->
-    <div class="community-area wow fadeInUp section-padding" id="contact">
+    <!-- <div class="community-area wow fadeInUp section-padding" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="heading">
-                        <h5>GReat Community</h5>
+                        <h5>Great Community</h5>
                         <div class="space-10"></div>
                         <h1>Our Community </h1>
                     </div>
@@ -929,6 +885,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--community area end-->
 
