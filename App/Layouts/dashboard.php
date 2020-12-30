@@ -16,6 +16,10 @@ use App\Models\User;
     <script src="<?= ASSETS; ?>js/jquery-2.2.4.min.js"></script>
     <link rel="shortcut icon" href="<?= ASSETS; ?>img/logo.png" type="image/x-icon">
     <title><?= APP_NAME; ?></title>
+
+    <style>
+        
+    </style>
 </head>
 
 <body>

@@ -25,16 +25,18 @@
                         <td><?= $moderator['user']['email']; ?></td>
                         <td><?= $moderator['auth']['is_active'] ? '<button class="btn btn-outline-success btn-sm mb-1">active</button>' : '<button class="btn btn-outline-danger btn-sm mb-1">inactive</button>'; ?></td>
                         <td>
-                            <a href="<?= VIEW_USER.$moderator['user']['id']; ?>" class="btn btn-primary btn-sm" title="view profile">
+                            
+                            <a href="<?= VIEW_USER.$moderator['user']['id']; ?>" class="btn btn-primary btn-sm mb-3" title="view profile">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a href="<?= VIEW_USER_REFERRALS.$moderator['user']['id']; ?>" class="btn btn-info btn-sm"><i class="fa fa-users" title="view referrals"></i></a>
-                            <button class="btn btn-warning btn-sm" title="downgrade to normal user" id="downgrade" user-id="<?= $moderator['user']['id']; ?>">
+                            <a href="<?= VIEW_USER_REFERRALS.$moderator['user']['id']; ?>" class="btn btn-info btn-sm mb-3"><i class="fa fa-users" title="view referrals"></i></a>
+                            <button class="btn btn-warning btn-sm mb-3" title="downgrade to normal user" id="downgrade" user-id="<?= $moderator['user']['id']; ?>">
                                 <i class="fa fa-angle-double-down"></i>
                             </button>
                             <button class="btn btn-danger btn-sm" title="delete moderator" id="delete" user-id="<?= $moderator['user']['id'] ?>">
                                 <i class="fa fa-trash"></i>
                             </button>
+                            
                         </td>
                     </tr>
                     <?php endforeach; ?>

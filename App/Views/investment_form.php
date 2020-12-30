@@ -7,7 +7,7 @@ use App\Models\PaymentMethod;
             <div class="form-row">
 
                 <div class="form-group col-md-3">
-                    <select name="package" id="package" class="form-control">
+                    <select name="package" id="package" class="form-control" required>
                         <option value="">choose package . . .</option>
                         <?php foreach (Package::allPackages() as $package) : ?>
                             <option value="<?= $package['id'] ?>"><?= $package['package_name'] ?></option>
@@ -20,7 +20,7 @@ use App\Models\PaymentMethod;
                 </div>
 
                 <div class="form-group col-md-4">
-                    <select name="coin" id="coin" class="form-control">
+                    <select name="coin" id="coin" class="form-control" required>
                         <option value="">choose payment option . . .</option>
                         <?php foreach (PaymentMethod::allMethods() as $coin) : ?>
                             <option value="<?= $coin['id'] ?>"><?= $coin['method'] ?></option>

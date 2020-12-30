@@ -99,7 +99,7 @@ use App\Controllers\Location as L;
                 success : (response) => {
                     if (response) {
                         alert('Profile updated');
-                        location.reload();
+                        location.href = "<?= ACTIVE_INVESTMENT; ?>";
                     }
                     $('form #update').removeAttr('disabled').html('Update');
                 }

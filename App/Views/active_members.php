@@ -27,11 +27,11 @@
                         <td><?= $active['auth']['is_active'] ? '<button class="btn btn-outline-success btn-sm mb-1">active</button>' : '<button class="btn btn-outline-danger btn-sm mb-1">inactive</button>'; ?></td>
                         <td>
 
-                            <a href="<?= VIEW_USER.$active['user']['id']; ?>" class="btn btn-primary btn-sm" title="view profile" >
+                            <a href="<?= VIEW_USER.$active['user']['id']; ?>" class="btn btn-primary btn-sm mb-3" title="view profile" >
                                 <i class="fa fa-eye"></i>
                             </a>
 
-                            <button class="btn btn-success btn-sm" title="upgrade user to moderator" id="upgrade" user-id="<?= $active['user']['id']; ?>">
+                            <button class="btn btn-success btn-sm mb-3" title="upgrade user to moderator" id="upgrade" user-id="<?= $active['user']['id']; ?>">
                                 <i class="fa fa-angle-double-up"></i>
                             </button>
 

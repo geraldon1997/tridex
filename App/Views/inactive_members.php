@@ -1,7 +1,7 @@
 <?php $sn = 1; ?>
 <h1 class="dash-title">Users</h1>
 <div class="row">
-<div class="col-lg-12">
+<div class="col-lg-6" >
     <div class="card spur-card">
         <div class="card-header">
             <div class="spur-card-icon">
