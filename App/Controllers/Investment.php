@@ -35,7 +35,7 @@ class Investment extends Controller
 
     public function pending()
     {
-        $investment = ModelsInvestment::findMultiple(ModelsInvestment::$table, "is_paid = 1 AND is_active = 0");
+        $investment = ModelsInvestment::findMultiple(ModelsInvestment::$table, "is_paid = 0 AND is_active = 0");
         return $this->view('pending_investments', ['admin' => $investment]);
     }
 
@@ -206,7 +206,6 @@ class Investment extends Controller
                 return 'Error : '.$result['error']."\n";
             }
         } else {
-            
             return Response::redirect(PAYMENT_PAGE.'/'.$inv_id);
         }
     }
@@ -276,11 +275,28 @@ class Investment extends Controller
 
         if ($status >= 100 || $status == 2) {
             // payment is complete
-            Payment::update(Payment::$table, "status = 'success'", 'gateway_id', $txn_id);
-            $package_id = ModelsInvestment::findSingle(ModelsInvestment::$table, 'id', $payments[0]['inv_id'])[0]['package_id'];
-            $period = Package::findSingle(Package::$table, 'id', $package_id)[0]['period'];
-            $expire = time() + (60 * 60 * 24 * $period);
-            ModelsInvestment::update(ModelsInvestment::$table, "period = '$expire', is_paid = 1, is_active = 1", 'id', $payments[0]['inv_id']);
+
+            $status = Payment::findSingle(Payment::$table, 'gateway_id', $txn_id)[0]['status'];
+
+            if ($status !== 'success') {
+                Payment::update(Payment::$table, "status = 'success'", 'gateway_id', $txn_id);
+                $package_id = ModelsInvestment::findSingle(ModelsInvestment::$table, 'id', $payments[0]['inv_id'])[0]['package_id'];
+                $period = Package::findSingle(Package::$table, 'id', $package_id)[0]['period'];
+                $expire = time() + (60 * 60 * 24 * $period);
+                ModelsInvestment::update(ModelsInvestment::$table, "period = '$expire', is_paid = 1, is_active = 1", 'id', $payments[0]['inv_id']);
+
+                $user_id = ModelsInvestment::find(ModelsInvestment::$table, "id", $payments[0]['inv_id'])[0]['user_id'];
+                $email = User::find(User::$table, "id", $user_id)[0]['email'];
+                $name = Profile::find(Profile::$table, "user_id", $user_id)[0]['firstname'];
+                $amount = '$'.$payments[0]['entered_amount'];
+
+                $mail = new Mail;
+                $mail->receiver = $email;
+                $mail->subject = "Payment Confirmed";
+                $template = $mail->template();
+                $mail->body = $mail->inject($template, APP_NAME, 'PAYMENT CONFIRMATION', $name, "your payment of <b>$amount</b> worth of coin has been confirmed");
+                $mail->sendemail();
+            }
         } elseif ($status < 0) {
             Payment::update(Payment::$table, "status = 'error'", 'gateway_id', $txn_id);
         } else {
