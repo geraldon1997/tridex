@@ -291,7 +291,7 @@ class Investment extends Controller
     {
         
         $report = "Error : ".$error_msg."\n\n";
-        $report = "POST DATA \n\n";
+        $report .= "POST DATA \n\n";
         foreach ($_POST as $key => $value) {
             $report .= "|$key| = |$value| \n";
         }
