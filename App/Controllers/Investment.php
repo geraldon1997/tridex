@@ -235,25 +235,25 @@ class Investment extends Controller
         $order_total = $payments[0]['amount']; //COIN
 
         if (!isset($_POST['ipn_mode']) || $_POST['ipn_mode'] != 'hmac') {
-            self::edie("IPN Mode is not HMAC");
+            self::edie($debug_email, "IPN Mode is not HMAC");
         }
 
         if (!isset($_SERVER['HTTP_HMAC']) || empty($_SERVER['HTTP_HMAC'])) {
-            self::edie("No HMAC signature sent");
+            self::edie($debug_email, "No HMAC signature sent");
         }
 
         $request = file_get_contents("php://input");
         if ($request === false || empty($request)) {
-            self::edie("Error in reading Post Data");
+            self::edie($debug_email, "Error in reading Post Data");
         }
 
         if (!isset($_POST['merchant']) || $_POST['merchant'] != trim($merchant_id)) {
-            self::edie("No or incorrect merchant id");
+            self::edie($debug_email, "No or incorrect merchant id");
         }
 
         $hmac = hash_hmac("sha512", $request, trim($ipn_secret));
         if (!hash_equals($hmac, $_SERVER['HTTP_HMAC'])) {
-            self::edie("HMAC Signature does not match");
+            self::edie($debug_email, "HMAC Signature does not match");
         }
 
         $amount1 = floatval($_POST['amount1']); //IN USD
@@ -263,11 +263,11 @@ class Investment extends Controller
         $status = intval($_POST['status']);
 
         if ($currency2 != $order_currency) {
-            self::edie("currency mismatch");
+            self::edie($debug_email, "currency mismatch");
         }
 
         if ($amount2 < $order_total) {
-            self::edie("Amount is lesser than order total");
+            self::edie($debug_email, "Amount is lesser than order total");
         }
 
         if ($status >= 100 || $status == 2) {
@@ -286,9 +286,9 @@ class Investment extends Controller
         die("IPN OK");
     }
 
-    public static function edie($error_msg)
+    public static function edie($debug_email, $error_msg)
     {
-        global $debug_email;
+        
         $report = "Error : ".$error_msg."\n\n";
         $report = "POST DATA \n\n";
         foreach ($_POST as $key => $value) {
