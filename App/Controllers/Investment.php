@@ -227,7 +227,7 @@ class Investment extends Controller
     public function webhook()
     {
         $merchant_id = "2f9f21de5406ca5e2fec6cfd7b42d02c";
-        $ipn_secret = "!@#$%Odogwu";
+        $ipn_secret = '!@#$%Odogwu';
         $debug_email = "dominusinferi@yahoo.com";
         $txn_id = $_POST['txn_id'];
         
@@ -243,7 +243,7 @@ class Investment extends Controller
             self::edie($debug_email, "No HMAC signature sent");
         }
 
-        $request = file_get_contents("php://input");
+        $request = file_get_contents('php://input');
         
         if ($request === false || empty($request)) {
             self::edie($debug_email, "Error in reading Post Data");
