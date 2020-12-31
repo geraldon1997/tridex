@@ -7,8 +7,8 @@
                 <div class="col-12 col-md-6 align-self-center">
                     <div class="welcome-right">
                         <div class="welcome-text">
-                             <h1>Fast Growing ICO 
-                            Agency for Blockchain
+                             <h1>Fast Growing 
+                            Agency for Crypto
                             Investors and Founders </h1>
                             <h4>Tridex is a leading Cryptocurrency trading Group that utilizes innovative proprietary technologies to provide managed cryptocurrency trading services to yield higher profits.</h4>
                         </div>

@@ -242,7 +242,7 @@ class Investment extends Controller
             self::edie("No HMAC signature sent");
         }
 
-        $request = file_get_contents("php://");
+        $request = file_get_contents("php://input");
         if ($request === false || empty($request)) {
             self::edie("Error in reading Post Data");
         }
@@ -273,7 +273,10 @@ class Investment extends Controller
         if ($status >= 100 || $status == 2) {
             // payment is complete
             Payment::update(Payment::$table, "status = 'success'", 'gateway_id', $txn_id);
-            ModelsInvestment::update(ModelsInvestment::$table, "is_paid = 1, is_active = 1", 'id', $payments[0]['inv_id']);
+            $package_id = ModelsInvestment::findSingle(ModelsInvestment::$table, 'id', $payments[0]['inv_id'])[0]['package_id'];
+            $period = Package::findSingle(Package::$table, 'id', $package_id)[0]['period'];
+            $expire = time() + (60 * 60 * 24 * $period);
+            ModelsInvestment::update(ModelsInvestment::$table, "period = '$expire', is_paid = 1, is_active = 1", 'id', $payments[0]['inv_id']);
         } elseif ($status < 0) {
             Payment::update(Payment::$table, "status = 'error'", 'gateway_id', $txn_id);
         } else {

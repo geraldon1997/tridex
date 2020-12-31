@@ -6,6 +6,6 @@
     <br>
     <label for="amountcoin">Amount (<?= $params[0]['to_currency'] ?>)</label>
     <h1><?= $params[0]['amount'].$params[0]['to_currency'] ?></h1>
-    <a href="<?= $params[0]['gateway_url'] ?>" target="_blank">pay now</a>
+    <a href="<?= $params[0]['gateway_url'] ?>" target="_blank" class="btn btn-primary btn-sm">pay now</a>
 </form>
 
