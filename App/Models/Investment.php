@@ -9,7 +9,7 @@ class Investment extends QueryBuilder
 
     public static function completed($userid)
     {
-        return Investment::findMultiple(Investment::$table, "user_id = $userid AND is_active = 0 AND is_completed = 1");
+        return Investment::findMultiple(Investment::$table, "user_id = $userid AND is_active = 1 AND is_completed = 1");
     }
 
     public static function pending($userid)
