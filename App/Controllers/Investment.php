@@ -262,7 +262,7 @@ class Investment extends Controller
         $currency2 = $_POST['currency2']; //COIN
         $status = intval($_POST['status']);
 
-        if ($currency1 != $order_currency) {
+        if ($currency2 != $order_currency) {
             self::edie("currency mismatch");
         }
 
