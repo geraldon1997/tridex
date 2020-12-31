@@ -161,8 +161,9 @@ class Investment extends Controller
         $inv_id = $params[0];
 
         $is_initialized = Payment::exists(Payment::$table, 'inv_id', $inv_id);
+        $error_status = Payment::findSingle(Payment::$table, 'inv_id', $inv_id)[0]['status'];
 
-        if (!$is_initialized) {
+        if (!$is_initialized || $error_status == 'error') {
             $scurrency = "USD";
             $investment = ModelsInvestment::find(ModelsInvestment::$table, 'id', $inv_id);
             $amount = $investment[0]['amount'];
