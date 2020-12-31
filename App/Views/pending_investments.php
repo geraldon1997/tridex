@@ -54,6 +54,7 @@ $sn = 1;
                                 <?php if ($investment['is_paid']) : ?>
                                     <i class="btn btn-outline-warning btn-sm" >Awaiting Confirmation</i>
                                 <?php else : ?>
+                                    <a href="/investment/deposit/<?= $investment['id']; ?>" class="btn btn-secondary btn-sm mb-3">pay now</a>
                                     <button class="btn btn-primary btn-sm mb-3" id="deposit" amount="<?= number_format($investment['amount']); ?>" wallet-address="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['address'] ?>" payment-method="<?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['method'] ?>">deposit</button>
                                     <button class="btn btn-success btn-sm mb-3" id="paid" inv-id="<?= $investment['id']; ?>">has paid</button>
                                 <?php endif; ?>

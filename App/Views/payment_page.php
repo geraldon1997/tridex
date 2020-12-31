@@ -1,9 +1,11 @@
-<?php
-$xpub = "xpub6CAbpLW1aGsoBChWuKMZXAJbBg8nXygBAcBpssuP8sk8sEwzRp4fhA43bnfSRf71rhF3SdSTPVnZYuAoEv7Z3mVMoiGqLZUHWDuFxiV55Db";
-$url = "https://api.smartbit.com.au/v1/blockchain/address/".$xpub;
-$data = json_decode(file_get_contents($url), true);
-$next = $data['address']['extkey_next_receiving_address'];
+<h1 class="dash-title">Deposit with Cryptocurrency to Tridex </h1>
 
-?>
+<form action="" method="post">
+    <label for="amountcurrency">Amount (USD)</label>
+    <h1><?= number_format($params[0]['entered_amount']); ?></h1>
+    <br>
+    <label for="amountcoin">Amount (<?= $params[0]['to_currency'] ?>)</label>
+    <h1><?= $params[0]['amount'].$params[0]['to_currency'] ?></h1>
+    <a href="<?= $params[0]['gateway_url'] ?>" target="_blank">pay now</a>
+</form>
 
-<h1>new address <?= $next; ?></h1>

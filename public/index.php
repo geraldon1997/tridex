@@ -33,6 +33,7 @@ if (isset($_SESSION['email'])) {
         define('ACTIVE_INVESTMENT', '/user/investment/active');
         define('PENDING_INVESTMENT', '/user/investment/pending');
         define('COMPLETED_INVESTMENT', '/user/investment/completed');
+        define('PAYMENT_PAGE', '/investment/payment');
 /************************************************************************************/
         define('WALLET', '/user/wallet');
 /************************************************************************************/

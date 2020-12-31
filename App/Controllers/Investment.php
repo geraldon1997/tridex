@@ -8,9 +8,25 @@ use App\Models\User;
 use App\Models\Wallet;
 use App\Controllers\Mail;
 use App\Models\Profile;
+use App\Controllers\CoinPaymentsAPI;
+use App\Core\Response;
+use App\Models\Payment;
+use App\Models\PaymentMethod;
 
 class Investment extends Controller
 {
+    public $coinpayment;
+    public $coinpaymentusername;
+
+    public function __construct()
+    {
+        $this->coinpayment = new CoinPaymentsAPI();
+        $this->coinpayment->Setup("22e62359373F3Ba8c7f67B539571B9af98867a8E19c38D7dd59d484d4bf69d94", "1bfc82bc2516df3b6307b0382843fc88e0b3cee1a25eda4a5a2eb6d435d02327");
+        $basicinfo = $this->coinpayment->GetBasicProfile();
+
+        $this->coinpaymentusername = $basicinfo['result']['public_name'];
+    }
+
     public function active()
     {
         $investment = ModelsInvestment::findMultiple(ModelsInvestment::$table, "is_paid = 1 AND is_active = 1");
@@ -140,9 +156,56 @@ class Investment extends Controller
         var_dump($_POST['accu']);
     }
 
-    public function deposit()
+    public function deposit($params)
     {
-        return $this->view('payment_page');
+        $inv_id = $params[0];
+
+        $is_initialized = Payment::exists(Payment::$table, 'inv_id', $inv_id);
+
+        if (!$is_initialized) {
+            $scurrency = "USD";
+            $investment = ModelsInvestment::find(ModelsInvestment::$table, 'id', $inv_id);
+            $amount = $investment[0]['amount'];
+            $coin = PaymentMethod::find(PaymentMethod::$table, 'id', $investment[0]['payment_method_id'])[0]['method'];
+            
+            
+            if ($coin === 'Bitcoin') {
+                $rcurrency = "BTC";
+            } elseif ($coin === 'Etherium') {
+                $rcurrency = "ETH";
+            }
+            
+    
+            $request = [
+                'amount' => $amount,
+                'currency1' => $scurrency,
+                'currency2' => $rcurrency,
+                'buyer_email' => $_SESSION['email'],
+                'item' => $inv_id,
+                'address' => "",
+                'ipn_url' => "http://tridex.test/investment/webhook"
+            ];
+    
+            $result = $this->coinpayment->CreateTransaction($request);
+            
+            if ($result['error'] === 'ok') {
+                Payment::insert(Payment::$table, [
+                    'inv_id' => $inv_id,
+                    'entered_amount' => $amount,
+                    'amount' => $result['result']['amount'],
+                    'from_currency' => $scurrency,
+                    'to_currency' => $rcurrency,
+                    'status' => 'initialized',
+                    'gateway_id' => $result['result']['txn_id'],
+                    'gateway_url' => $result['result']['status_url']
+                ]);
+                return Response::redirect(PAYMENT_PAGE.'/'.$inv_id);
+            } else {
+                return 'Error : '.$result['error']."\n";
+            }
+        } else {
+            return Response::redirect(PAYMENT_PAGE.'/'.$inv_id);
+        }
     }
 
     public function user($id)
@@ -151,5 +214,91 @@ class Investment extends Controller
         $investments = ModelsInvestment::investments($userid);
         $useremail = User::findSingle(User::$table, 'id', $userid)[0]['email'];
         return $this->view('users_investments', ['email' => $useremail, 'investments' => $investments]);
+    }
+
+    public function payment($params)
+    {
+        $inv_id = $params[0];
+        $payments = Payment::find(Payment::$table, 'inv_id', $inv_id);
+        return $this->view('payment_page', $payments);
+    }
+
+    public function webhook()
+    {
+        $merchant_id = "2f9f21de5406ca5e2fec6cfd7b42d02c";
+        $ipn_secret = "!@#$%Odogwu";
+        $debug_email = "dominusinferi@yahoo.com";
+        $txn_id = $_POST['txn_id'];
+        
+        $payments = Payment::findSingle(Payment::$table, 'gateway_id', $txn_id);
+        $order_currency = $payments[0]['to_currency']; //COIN
+        $order_total = $payments[0]['amount']; //COIN
+
+        if (!isset($_POST['ipn_mode']) || $_POST['ipn_mode'] != 'hmac') {
+            self::edie("IPN Mode is not HMAC");
+        }
+
+        if (!isset($_SERVER['HTTP_HMAC']) || empty($_SERVER['HTTP_HMAC'])) {
+            self::edie("No HMAC signature sent");
+        }
+
+        $request = file_get_contents("php://");
+        if ($request === false || empty($request)) {
+            self::edie("Error in reading Post Data");
+        }
+
+        if (!isset($_POST['merchant']) || $_POST['merchant'] != trim($merchant_id)) {
+            self::edie("No or incorrect merchant id");
+        }
+
+        $hmac = hash_hmac("sha512", $request, trim($ipn_secret));
+        if (!hash_equals($hmac, $_SERVER['HTTP_HMAC'])) {
+            self::edie("HMAC Signature does not match");
+        }
+
+        $amount1 = floatval($_POST['amount1']); //IN USD
+        $amount2 = floatval($_POST['amount2']); //IN COIN
+        $currency1 = $_POST['currency1']; //USD
+        $currency2 = $_POST['currency2']; //COIN
+        $status = intval($_POST['status']);
+
+        if ($currency1 != $order_currency) {
+            self::edie("currency mismatch");
+        }
+
+        if ($amount2 < $order_total) {
+            self::edie("Amount is lesser than order total");
+        }
+
+        if ($status >= 100 || $status == 2) {
+            // payment is complete
+            Payment::update(Payment::$table, "status = 'success'", 'gateway_id', $txn_id);
+            ModelsInvestment::update(ModelsInvestment::$table, "is_paid = 1, is_active = 1", 'id', $payments[0]['inv_id']);
+        } elseif ($status < 0) {
+            Payment::update(Payment::$table, "status = 'error'", 'gateway_id', $txn_id);
+        } else {
+            Payment::update(Payment::$table, "status = 'pending'", 'gateway_id', $txn_id);
+        }
+        
+        die("IPN OK");
+    }
+
+    public static function edie($error_msg)
+    {
+        global $debug_email;
+        $report = "Error : ".$error_msg."\n\n";
+        $report = "POST DATA \n\n";
+        foreach ($_POST as $key => $value) {
+            $report .= "|$key| = |$value| \n";
+        }
+
+        $mail = new Mail();
+        $mail->subject = "Payment Error";
+        $mail->receiver = $debug_email;
+        $template = $mail->template();
+        $mail->body = $report;
+        $mail->inject($template, APP_NAME, "PAYMENT ERROR", $debug_email, $mail->body);
+        $mail->sendemail();
+        die($error_msg);
     }
 }
