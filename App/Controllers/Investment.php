@@ -163,7 +163,7 @@ class Investment extends Controller
         $is_initialized = Payment::exists(Payment::$table, 'inv_id', $inv_id);
         $error_status = Payment::findSingle(Payment::$table, 'inv_id', $inv_id)[0]['status'];
 
-        if (!$is_initialized || $error_status == 'error') {
+        if (!$is_initialized || $error_status === 'error') {
             $scurrency = "USD";
             $investment = ModelsInvestment::find(ModelsInvestment::$table, 'id', $inv_id);
             $amount = $investment[0]['amount'];
@@ -184,7 +184,7 @@ class Investment extends Controller
                 'buyer_email' => $_SESSION['email'],
                 'item' => $inv_id,
                 'address' => "",
-                'ipn_url' => "http://tridex.test/investment/webhook"
+                'ipn_url' => "https://tridexlimited.com/investment/webhook"
             ];
     
             $result = $this->coinpayment->CreateTransaction($request);
@@ -200,11 +200,13 @@ class Investment extends Controller
                     'gateway_id' => $result['result']['txn_id'],
                     'gateway_url' => $result['result']['status_url']
                 ]);
+                
                 return Response::redirect(PAYMENT_PAGE.'/'.$inv_id);
             } else {
                 return 'Error : '.$result['error']."\n";
             }
         } else {
+            
             return Response::redirect(PAYMENT_PAGE.'/'.$inv_id);
         }
     }
@@ -220,7 +222,7 @@ class Investment extends Controller
     public function payment($params)
     {
         $inv_id = $params[0];
-        $payments = Payment::find(Payment::$table, 'inv_id', $inv_id);
+        $payments = Payment::findMultiple(Payment::$table, "inv_id = '$inv_id' ORDER BY id DESC LIMIT 1 ");
         return $this->view('payment_page', $payments);
     }
 
