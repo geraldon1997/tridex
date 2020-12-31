@@ -235,16 +235,16 @@ class Investment extends Controller
         $order_currency = $payments[0]['to_currency']; //COIN
         $order_total = $payments[0]['amount']; //COIN
 
-        // if (!isset($_POST['ipn_mode']) || $_POST['ipn_mode'] != 'hmac') {
-        //     self::edie($debug_email, "IPN Mode is not HMAC");
-        // }
+        if (!isset($_POST['ipn_mode']) || $_POST['ipn_mode'] != 'hmac') {
+            self::edie($debug_email, "IPN Mode is not HMAC");
+        }
 
-        // if (!isset($_SERVER['HTTP_HMAC']) || empty($_SERVER['HTTP_HMAC'])) {
-        //     self::edie($debug_email, "No HMAC signature sent");
-        // }
+        if (!isset($_SERVER['HTTP_HMAC']) || empty($_SERVER['HTTP_HMAC'])) {
+            self::edie($debug_email, "No HMAC signature sent");
+        }
 
         $request = file_get_contents("php://input");
-        var_dump($request);
+        
         if ($request === false || empty($request)) {
             self::edie($debug_email, "Error in reading Post Data");
         }
