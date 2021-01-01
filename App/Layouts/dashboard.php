@@ -19,6 +19,12 @@ use App\Models\User;
 
     <style>
         
+        th{
+            white-space: nowrap;
+        }
+        td{
+            white-space: nowrap;
+        }
     </style>
 </head>
 

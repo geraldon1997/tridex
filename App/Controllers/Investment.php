@@ -102,10 +102,10 @@ class Investment extends Controller
 
     public function activate()
     {
-        $id = $_POST['inv_id'];
-        
+        $inv_id = $_POST['inv_id'];
+        $txn_id = $_POST['txn_id'];
 
-        $investment = ModelsInvestment::find(ModelsInvestment::$table, 'id', $id);
+        $investment = ModelsInvestment::find(ModelsInvestment::$table, 'id', $inv_id);
         $time = Package::package($investment[0]['package_id'])[0]['period'];
         $period = time() + (60 * 60 * 24 * $time);
 
@@ -120,7 +120,8 @@ class Investment extends Controller
         $mail->body = $mail->inject($template, APP_NAME, 'PAYMENT CONFIRMATION', $name, "your payment of <b>$amount</b> worth of coin has been confirmed");
         $mail->sendemail();
         
-        return ModelsInvestment::update(ModelsInvestment::$table, "is_active = 1, period = '$period' ", 'id', $id);
+        Payment::update(Payment::$table, "status = 'success' ", 'gateway_id', $txn_id);
+        return ModelsInvestment::update(ModelsInvestment::$table, "is_paid = 1, is_active = 1, period = '$period' ", 'id', $inv_id);
     }
 
     public function currentIV()

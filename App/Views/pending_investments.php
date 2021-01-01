@@ -2,6 +2,7 @@
 
 use App\Models\Investment;
 use App\Models\Package;
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\PaymentMethod;
 
@@ -65,6 +66,7 @@ $sn = 1;
                             <th scope="col">#</th>
                             <th scope="col">User</th>
                             <th scope="col">Package</th>
+                            <th scope="col">Coin</th>
                             <th scope="col">Amount</th>
                             <th scope="col">ROI</th>
                             <th scope="col">Status</th>
@@ -77,11 +79,12 @@ $sn = 1;
                                 <td><?= $sn++; ?></td>
                                 <td><?= User::find(User::$table, 'id', $investment['user_id'])[0]['email'] ?></td>
                                 <td><?= Package::package($investment['package_id'])[0]['package_name'] ?></td>
+                                <td><?= PaymentMethod::find(PaymentMethod::$table, 'id', $investment['payment_method_id'])[0]['method']; ?></td>
                                 <td><?= '$'.number_format($investment['amount']) ?></td>
                                 <td><?= '$'.number_format($investment['expected_amount']) ?></td>
                                 <td><button class="btn btn-outline-warning btn-sm">pending</button></td>
                                 <td>    
-                                    <button class="btn btn-success btn-sm" inv-id="<?= $investment['id'] ?>">confirm</button>
+                                    <button class="btn btn-success btn-sm" inv-id="<?= $investment['id'] ?>" txn-id="<?= Payment::findMultiple(Payment::$table, "inv_id = ".$investment['id']." ORDER BY id DESC LIMIT 1 ") ? Payment::findMultiple(Payment::$table, "inv_id = ".$investment['id']." ORDER BY id DESC LIMIT 1 ")[0]['gateway_id'] : ''; ?>">confirm</button>
                                 </td>
                                     
                                     
@@ -152,15 +155,19 @@ $sn = 1;
     <script>
         $('button').click((e) => {
 
-            var form = $(e.target).attr('inv-id');
+            var inv_id = $(e.target).attr('inv-id');
+            var txn_id = $(e.target).attr('txn-id');
             
-            if (form) {
+            if (txn_id === '' || txn_id === null || txn_id === undefined) {
+                return alert('user has not initiated payment');
+            } else {
                 $(e.target).prop('disabled', 'true').html('processing . . .');
                 $.ajax({
                     type : 'POST',
                     url : '/investment/activate',
                     data : {
-                        inv_id : form
+                        inv_id : inv_id,
+                        txn_id : txn_id
                     },
                     success : (response) => {
                         if (response) {
@@ -172,7 +179,7 @@ $sn = 1;
                     }
                 })
             }
-            
+        
         })
     </script>
 <?php endif; ?>
