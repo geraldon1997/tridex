@@ -16,9 +16,34 @@ class Page extends Controller
         return $this->view('about');
     }
 
-    public function guide($data)
+    public function whitepaper()
     {
-        //
+        return $this->view('white_paper');
+    }
+
+    public function plans()
+    {
+        return $this->view('plans');
+    }
+
+    public function wapspeed()
+    {
+        return $this->view('wapspeed');
+    }
+
+    public function team()
+    {
+        return $this->view('team');
+    }
+
+    public function app()
+    {
+        return $this->view('app');
+    }
+
+    public function whyus()
+    {
+        return $this->view('why_us');
     }
 
     public function dbseeder()

@@ -42,6 +42,12 @@ class Controller
         'nonauth' => [
             'home',
             'about',
+            'white_paper',
+            'plans',
+            'wapspeed',
+            'team',
+            'app',
+            'why_us',
             'register',
             'signin',
             'forgotpassword',

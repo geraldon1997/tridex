@@ -54,15 +54,15 @@ use App\Core\Request;
                     <div class="main-menu text-center">
                         <nav>
                             <ul id="slick-nav">
-                                <li><a class="scroll" href="<?= HOME.'#home'; ?>">home</a></li>
-                                <li><a class="scroll" href="<?= HOME.'#about' ?>">About</a></li>
-                                <li><a class="scroll" href="<?= HOME.'#Paper' ?>">White Paper</a></li>
+                                <li><a class="scroll" href="<?= HOME; ?>">home</a></li>
+                                <li><a class="scroll" href="<?= ABOUT; ?>">About</a></li>
+                                <li><a class="scroll" href="<?= PAPER; ?>">White Paper</a></li>
                                 
-                                <li><a class="scroll" href="<?= HOME.'#plans' ?>">Plans</a></li>
-                                <li><a class="scroll" href="<?= HOME.'#roadmap' ?>">WapSpeed</a></li>
-                                <li><a class="scroll" href="<?= HOME.'#team' ?>">Team</a></li>
-                                <li><a class="scroll" href="<?= HOME.'#apps' ?>">APP</a></li>
-                                <li><a class="scroll" href="<?= HOME.'#faq' ?>">Why Us</a></li>
+                                <li><a class="scroll" href="<?= PLANS; ?>">Plans</a></li>
+                                <li><a class="scroll" href="<?= WAPSPEED; ?>">WapSpeed</a></li>
+                                <li><a class="scroll" href="<?= TEAM; ?>">Team</a></li>
+                                <li><a class="scroll" href="<?= APP; ?>">APP</a></li>
+                                <li><a class="scroll" href="<?= WHY_US; ?>">Why Us</a></li>
                                 
                             </ul>
                         </nav>
