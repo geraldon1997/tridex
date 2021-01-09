@@ -1,7 +1,7 @@
 <?php $sn = 1; ?>
 <h1 class="dash-title">Users</h1>
 <div class="row">
-<div class="col-lg-6" >
+<div class="col-lg-12" >
     <div class="card spur-card">
         <div class="card-header">
             <div class="spur-card-icon">
@@ -52,12 +52,12 @@
 
         var result = confirm('Are you sure to '+action+' this user ?');
 
-        if (result == true) {
+        if (result) {
             $.ajax({
                 type : 'POST',
                 url : '/user/' + action,
                 data : {
-                    id : userid
+                    userid : userid
                 },
                 success : (response) => {
                     if (response) {
