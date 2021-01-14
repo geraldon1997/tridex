@@ -211,7 +211,7 @@ class User extends Controller
                 return "tni";
             }
 
-            $sendmail = $this->sendverificationemail($email, $token, $_POST['pass']);
+            $sendmail = $this->sendverificationemail($email, $token, $_POST['password']);
 
             if (!$sendmail) {
                 return "mns";
