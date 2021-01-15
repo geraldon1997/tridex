@@ -94,7 +94,14 @@ class Controller
                 return View::renderView($layout, $view, $params);
             }
         }
-        session_unset();
-        return View::renderView('main', 'signin', $params);
+        
+        $checknon = in_array($view, $this->views['nonauth']);
+
+        if ($checknon) {
+            return View::renderView('main', $view, $params);
+        }
+
+        unset($_SESSION['email']);
+        return Response::redirect(SIGNIN);
     }
 }
