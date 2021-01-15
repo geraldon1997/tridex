@@ -56,13 +56,14 @@
                 url : '/user/verifylogincode',
                 data : formdata,
                 success : (response) => {
+                    
                     switch (response) {
                         case 'ilc':
                             alert('Invalid Login Code, a new Code has been sent to your email');
                             btn.removeAttr('disabled').html('Verify');
                             break;
 
-                        case '':
+                        case 'lcng':
                             alert('An Error Occurred');
                             window.location = '/user/signin';
                             break;

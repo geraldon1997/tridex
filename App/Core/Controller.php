@@ -90,7 +90,6 @@ class Controller
             $exists_in_secret = array_search($view, $this->views['auth'][$role]);
             if (!$exists_in_secret) {
                 Response::code(404);
-                unset($_SESSION['email']);
                 return Response::redirect('/user/signin');
             }
             Response::code(200);

@@ -264,23 +264,24 @@ class User extends Controller
         }
 
         $current_time = time();
+        if ($auth[0]['login_code_expiry'] > $current_time) {
+            $login = Auth::update(Auth::$table, "is_logged_in = 1", 'login_code', $lc);
+            return 'lcv';
+        }
+
         if ($auth[0]['login_code_expiry'] < $current_time) {
             $new_login_code = $this->generateToken($this->permitted_chars, 8);
             $new_login_code_expiry = time() + (60 * 5);
             $userid = ModelsUser::findSingle(ModelsUser::$table, 'email', $_SESSION['email'])[0]['id'];
             $generate_new_login_code = Auth::update(Auth::$table, "login_code = '$new_login_code', login_code_expiry = '$new_login_code_expiry' ", 'user_id', $userid);
 
-            if (!$generate_new_login_code) {
-                unset($_SESSION['email']);
-                return 'lcng';
+            if ($generate_new_login_code) {
+                $this->sendlogincode($_SESSION['email'], $new_login_code);
+                return 'exlc';
             }
-
-            $this->sendlogincode($_SESSION['email'], $new_login_code);
-            return 'exlc';
+            unset($_SESSION['email']);
+            return 'lcng';
         }
-
-        $login = Auth::update(Auth::$table, "is_logged_in = 1", 'login_code', $lc);
-        return 'lcv';
     }
 
     public function sendpasswordresetlink()

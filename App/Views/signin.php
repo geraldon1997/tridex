@@ -115,7 +115,7 @@
                         case 'lcs':
                             $('#signin').prop({'disabled':'true'}).html('credentials verified');
                             setTimeout(() => {
-                                alert('Login code has been sent to your email. \n please check your spam if not found inbox and move it to inbox');                          
+                                alert('Login code has been sent to your email. \nplease check your spam if not found inbox and move it to inbox');                          
                                 window.location = '/user/login';
                             }, 1000);
                             break;
