@@ -38,6 +38,7 @@ use App\Core\Request;
     
   </head>
   <body>
+  
     <!--header area start-->
     <div class="header-area wow fadeInDown header-absolate" id="nav" data-0="position:fixed;" data-top-top="position:fixed;top:0;" data-edge-strategy="set">
         <div class="container">
@@ -45,15 +46,18 @@ use App\Core\Request;
                 <div class="col-4 d-block d-lg-none">
                     <div class="mobile-menu"></div>
                 </div>
+                
                 <div class="col-4 col-lg-2">
                     <div class="logo-area">
                         <a href="<?= HOME; ?>"><img src="<?= ASSETS; ?>img/logo.png" alt="" style="height: 50px !important;"></a>
                     </div>
                 </div>
+                
                 <div class="col-4 col-lg-8 d-none d-lg-block">
                     <div class="main-menu text-center">
                         <nav>
                             <ul id="slick-nav">
+                            
                                 <li><a class="scroll" href="<?= HOME; ?>">home</a></li>
                                 <li><a class="scroll" href="<?= ABOUT; ?>">About</a></li>
                                 <li><a class="scroll" href="<?= PAPER; ?>">White Paper</a></li>
@@ -71,12 +75,12 @@ use App\Core\Request;
                 <div class="col-4 col-lg-2 text-right">
                     <a href="<?= SIGNUP; ?>" class="logibtn gradient-btn">get started</a>
                 </div>
-                
+                <div id="google_translate_element" ></div>
             </div>
         </div>
     </div>
     <!--header area end-->
-
+    
 
 {{content}}
 
@@ -137,6 +141,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </div>
     <!--footer area end-->
 
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- jquery 2.2.4 js-->
     <script src="<?= ASSETS; ?>js/jquery-2.2.4.min.js"></script>
     <!-- popper js-->
@@ -157,6 +168,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="<?= ASSETS; ?>js/main.js"></script>
     <!-- forms js-->
     <script src="<?= ASSETS; ?>js/forms.js?v=1"></script>
+    
+
+
+    
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
